@@ -4,7 +4,7 @@ services:
   phoenix:
     build: .
     ports:
-      - "4000:4000"
+      - '4000:4000'
     volumes:
       - ./src:/app
     environment:
@@ -18,3 +18,5 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
