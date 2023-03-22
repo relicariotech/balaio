@@ -1,7 +1,7 @@
 FROM elixir:1.14
 
 RUN mix local.hex --force \
-  && mix archive.install --force hex 1.7.1 \
+  && mix archive.install --force hex phx_new 1.7.1 \
   && apt-get update \
   && curl -sL https://deb.nodesource.com/setup_12.x | bash \
   && apt-get install -y apt-utils \
