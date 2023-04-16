@@ -11,14 +11,14 @@ Before you can push the original repository to your new copy, or mirror, of the 
 No terminal, crie um `bare clone` desse repositório.
 
 ```
-$ git clone --bare https://github.com/dhonysilva/phxboilerplate.git
+git clone --bare https://github.com/dhonysilva/phxboilerplate.git
 ```
 
 Mirror-push to the new repository.
 
 ```
-$ cd phxboilerplate.git
-$ git push --mirror git@github.com:dhonysilva/fazenda.git
+cd phxboilerplate.git
+git push --mirror git@github.com:dhonysilva/fazenda.git
 ```
 
 Remove the temporary local repository you created earlier.
