@@ -18,7 +18,7 @@ Mirror-push to the new repository.
 
 ```
 $ cd phxboilerplate.git
-$ git push --mirror https://github.com/dhonysilva/fazenda.git
+$ git push --mirror git@github.com:dhonysilva/fazenda.git
 ```
 
 Remove the temporary local repository you created earlier.
