@@ -99,3 +99,19 @@ docker-compose up
 ```
 
 Now we can visit [`localhost:4000`](http://localhost:4000) from our browser.
+
+
+Instruções que serão usadas especificamente durante a palestra no Meetup do dia 27/Abril/2013. Excluir após.
+
+
+Criar o model User
+
+```
+docker-compose run --rm phoenix mix phx.gen.live Accounts User users name:string age:integer
+```
+
+Criar o model Server
+
+```
+docker-compose run --rm phoenix mix phx.gen.live Servers Server servers name:string status:string deploy_count:integer size:float framework:string last_commit_message:string
+```
