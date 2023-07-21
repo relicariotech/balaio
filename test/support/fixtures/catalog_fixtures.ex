@@ -26,4 +26,24 @@ defmodule Balaio.CatalogFixtures do
 
     business
   end
+
+  @doc """
+  Generate a business.
+  """
+  def business_fixture(attrs \\ %{}) do
+    {:ok, business} =
+      attrs
+      |> Enum.into(%{
+        name: "some name",
+        address: "some address",
+        description: "some description",
+        category: "some category",
+        phone: "some phone",
+        thumbnail: "some thumbnail",
+        is_delivery: true
+      })
+      |> Balaio.Catalog.create_business()
+
+    business
+  end
 end

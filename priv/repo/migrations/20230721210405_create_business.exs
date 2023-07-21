@@ -10,9 +10,6 @@ defmodule Balaio.Repo.Migrations.CreateBusiness do
       add :address, :string
       add :category, :string
       add :thumbnail, :string
-      add :menu_online, :string
-      add :menu_as_pdf, :string
-      add :social_media_link, :string
       add :is_delivery, :boolean, default: false, null: false
       add :user_id, references(:users, on_delete: :nothing, type: :binary_id)
 

@@ -4,9 +4,9 @@ defmodule BalaioWeb.BusinessLiveTest do
   import Phoenix.LiveViewTest
   import Balaio.CatalogFixtures
 
-  @create_attrs %{name: "some name", address: "some address", description: "some description", category: "some category", phone: "some phone", thumbnail: "some thumbnail", menu_online: "some menu_online", menu_as_pdf: "some menu_as_pdf", social_media_link: "some social_media_link", is_delivery: true}
-  @update_attrs %{name: "some updated name", address: "some updated address", description: "some updated description", category: "some updated category", phone: "some updated phone", thumbnail: "some updated thumbnail", menu_online: "some updated menu_online", menu_as_pdf: "some updated menu_as_pdf", social_media_link: "some updated social_media_link", is_delivery: false}
-  @invalid_attrs %{name: nil, address: nil, description: nil, category: nil, phone: nil, thumbnail: nil, menu_online: nil, menu_as_pdf: nil, social_media_link: nil, is_delivery: false}
+  @create_attrs %{name: "some name", address: "some address", description: "some description", category: "some category", phone: "some phone", thumbnail: "some thumbnail", is_delivery: true}
+  @update_attrs %{name: "some updated name", address: "some updated address", description: "some updated description", category: "some updated category", phone: "some updated phone", thumbnail: "some updated thumbnail", is_delivery: false}
+  @invalid_attrs %{name: nil, address: nil, description: nil, category: nil, phone: nil, thumbnail: nil, is_delivery: false}
 
   defp create_business(_) do
     business = business_fixture()
