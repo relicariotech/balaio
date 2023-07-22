@@ -2,11 +2,8 @@ defmodule Balaio.Catalog.Business do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Balaio.Accounts.User
-
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
-
   schema "business" do
     field :name, :string
     field :address, :string
@@ -15,8 +12,7 @@ defmodule Balaio.Catalog.Business do
     field :phone, :string
     field :thumbnail, :string
     field :is_delivery, :boolean, default: false
-
-    belongs_to :user, User
+    field :user_id, :binary_id
 
     timestamps()
   end
@@ -24,16 +20,7 @@ defmodule Balaio.Catalog.Business do
   @doc false
   def changeset(business, attrs) do
     business
-    |> cast(attrs, [
-      :name,
-      :description,
-      :phone,
-      :address,
-      :category,
-      :thumbnail,
-      :is_delivery,
-      :user_id
-    ])
+    |> cast(attrs, [:name, :description, :phone, :address, :category, :thumbnail, :is_delivery])
     |> validate_required([
       :name,
       :description,
@@ -41,8 +28,7 @@ defmodule Balaio.Catalog.Business do
       :address,
       :category,
       :thumbnail,
-      :is_delivery,
-      :user_id
+      :is_delivery
     ])
     |> unique_constraint(:user_id)
   end

@@ -2,7 +2,7 @@
   Listing Business
   <:actions>
     <.link patch={~p"/business/new"}>
-      <.button>+ Business</.button>
+      <.button>New Business</.button>
     </.link>
   </:actions>
 </.header>
@@ -35,12 +35,7 @@
   </:action>
 </.table>
 
-<.modal
-  :if={@live_action in [:new, :edit]}
-  id="business-modal"
-  show
-  on_cancel={JS.patch(~p"/business")}
->
+<.modal :if={@live_action in [:new, :edit]} id="business-modal" show on_cancel={JS.patch(~p"/business")}>
   <.live_component
     module={BalaioWeb.BusinessLive.FormComponent}
     id={@business.id || :new}
