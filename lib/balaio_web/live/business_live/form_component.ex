@@ -2,6 +2,7 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
   use BalaioWeb, :live_component
 
   alias Balaio.Catalog
+  alias Balaio.Catalog.Business
 
   @impl true
   def render(assigns) do
@@ -26,9 +27,10 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
         <.input field={@form[:category]} type="text" label="Category" />
         <.input field={@form[:thumbnail]} type="text" label="Thumbnail" />
         <.input field={@form[:is_delivery]} type="checkbox" label="Is delivery" />
-        <:actions>
+        <.input field={@form[:user_id]} type="hidden" />
+        <-- Added this line <:actions>
           <.button phx-disable-with="Saving...">Save Business</.button>
-        </:actions>
+        </-->
       </.simple_form>
     </div>
     """
@@ -38,10 +40,12 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
   def update(%{business: business} = assigns, socket) do
     changeset = Catalog.change_business(business)
 
-    {:ok,
-     socket
-     |> assign(assigns)
-     |> assign_form(changeset)}
+    {
+      :ok,
+      socket
+      |> assign(assigns)
+      |> assign_form(changeset)
+    }
   end
 
   @impl true
@@ -55,7 +59,14 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
   end
 
   def handle_event("save", %{"business" => business_params}, socket) do
+    params = params_with_user_id(business_params, socket)
+    # {:noreply, save_business(socket, params)}
     save_business(socket, socket.assigns.action, business_params)
+  end
+
+  def params_with_user_id(params, %{assigns: %{current_user: current_user}}) do
+    params
+    |> Map.put("user_id", current_user.id)
   end
 
   defp save_business(socket, :edit, business_params) do
@@ -87,6 +98,15 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
         {:noreply, assign_form(socket, changeset)}
     end
   end
+
+  # def assign_business(%{assigns: %{current_user: user}} = socket) do
+  #   assign(socket, :business, %Business{user_id: user.id})
+  # end
+
+  # defp assign_form(%{assigns: %{business: business}} = socket) do
+  #   socket
+  #   |> assign(:form, to_form(Catalog.change_business(business)))
+  # end
 
   defp assign_form(socket, %Ecto.Changeset{} = changeset) do
     assign(socket, :form, to_form(changeset))

@@ -6,6 +6,7 @@ defmodule Balaio.Catalog.Business do
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
+
   schema "business" do
     field :name, :string
     field :address, :string
@@ -15,7 +16,7 @@ defmodule Balaio.Catalog.Business do
     field :thumbnail, :string
     field :is_delivery, :boolean, default: false
 
-    has_many :user, User
+    belongs_to :user, User
 
     timestamps()
   end
@@ -23,7 +24,16 @@ defmodule Balaio.Catalog.Business do
   @doc false
   def changeset(business, attrs) do
     business
-    |> cast(attrs, [:name, :description, :phone, :address, :category, :thumbnail, :is_delivery])
+    |> cast(attrs, [
+      :name,
+      :description,
+      :phone,
+      :address,
+      :category,
+      :thumbnail,
+      :is_delivery,
+      :user_id
+    ])
     |> validate_required([
       :name,
       :description,
@@ -31,7 +41,8 @@ defmodule Balaio.Catalog.Business do
       :address,
       :category,
       :thumbnail,
-      :is_delivery
+      :is_delivery,
+      :user_id
     ])
     |> unique_constraint(:user_id)
   end
