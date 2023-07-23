@@ -1,5 +1,5 @@
 <.header>
-  Business <%= @business.id %>
+  <%= @business.name %>
   <:subtitle>This is a business record from your database.</:subtitle>
   <:actions>
     <.link patch={~p"/business/#{@business}/show/edit"} phx-click={JS.push_focus()}>
