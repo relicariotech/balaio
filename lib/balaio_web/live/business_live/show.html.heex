@@ -14,13 +14,25 @@
   <:item title="Phone"><%= @business.phone %></:item>
   <:item title="Address"><%= @business.address %></:item>
   <:item title="Category"><%= @business.category %></:item>
-  <:item title="Thumbnail"><%= @business.thumbnail %></:item>
   <:item title="Is delivery"><%= @business.is_delivery %></:item>
 </.list>
+<div class="mt-4">
+  <.label>Imagem</.label>
+  <div class="grid justify-center md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7 my-10">
+    <figure class="rounded-lg border shadow-md max-w-xs md:max-w-none">
+      <img src={@business.thumbnail} />
+    </figure>
+  </div>
+</div>
 
 <.back navigate={~p"/business"}>Back to business</.back>
 
-<.modal :if={@live_action == :edit} id="business-modal" show on_cancel={JS.patch(~p"/business/#{@business}")}>
+<.modal
+  :if={@live_action == :edit}
+  id="business-modal"
+  show
+  on_cancel={JS.patch(~p"/business/#{@business}")}
+>
   <.live_component
     module={BalaioWeb.BusinessLive.FormComponent}
     id={@business.id}
