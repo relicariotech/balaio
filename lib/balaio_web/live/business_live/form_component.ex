@@ -26,6 +26,7 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
         <.input field={@form[:category]} type="text" label="Category" />
         <.input field={@form[:thumbnail]} type="text" label="Thumbnail" />
         <.input field={@form[:is_delivery]} type="checkbox" label="Is delivery" />
+
         <:actions>
           <.button phx-disable-with="Saving...">Save Business</.button>
         </:actions>

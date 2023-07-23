@@ -20,7 +20,15 @@ defmodule Balaio.Catalog.Business do
   @doc false
   def changeset(business, attrs) do
     business
-    |> cast(attrs, [:name, :description, :phone, :address, :category, :thumbnail, :is_delivery])
+    |> cast(attrs, [
+      :name,
+      :description,
+      :phone,
+      :address,
+      :category,
+      :thumbnail,
+      :is_delivery
+    ])
     |> validate_required([
       :name,
       :description,
