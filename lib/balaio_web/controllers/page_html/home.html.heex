@@ -1,43 +1,5 @@
 <.flash_group flash={@flash} />
-<div class="left-[40rem] fixed inset-y-0 right-0 z-0 hidden lg:block xl:left-[50rem]">
-  <svg
-    viewBox="0 0 1480 957"
-    fill="none"
-    aria-hidden="true"
-    class="absolute inset-0 h-full w-full"
-    preserveAspectRatio="xMinYMid slice"
-  >
-    <path fill="#EE7868" d="M0 0h1480v957H0z" />
-    <path
-      d="M137.542 466.27c-582.851-48.41-988.806-82.127-1608.412 658.2l67.39 810 3083.15-256.51L1535.94-49.622l-98.36 8.183C1269.29 281.468 734.115 515.799 146.47 467.012l-8.928-.742Z"
-      fill="#FF9F92"
-    />
-    <path
-      d="M371.028 528.664C-169.369 304.988-545.754 149.198-1361.45 665.565l-182.58 792.025 3014.73 694.98 389.42-1689.25-96.18-22.171C1505.28 697.438 924.153 757.586 379.305 532.09l-8.277-3.426Z"
-      fill="#FA8372"
-    />
-    <path
-      d="M359.326 571.714C-104.765 215.795-428.003-32.102-1349.55 255.554l-282.3 1224.596 3047.04 722.01 312.24-1354.467C1411.25 1028.3 834.355 935.995 366.435 577.166l-7.109-5.452Z"
-      fill="#E96856"
-      fill-opacity=".6"
-    />
-    <path
-      d="M1593.87 1236.88c-352.15 92.63-885.498-145.85-1244.602-613.557l-5.455-7.105C-12.347 152.31-260.41-170.8-1225-131.458l-368.63 1599.048 3057.19 704.76 130.31-935.47Z"
-      fill="#C42652"
-      fill-opacity=".2"
-    />
-    <path
-      d="M1411.91 1526.93c-363.79 15.71-834.312-330.6-1085.883-863.909l-3.822-8.102C72.704 125.95-101.074-242.476-1052.01-408.907l-699.85 1484.267 2837.75 1338.01 326.02-886.44Z"
-      fill="#A41C42"
-      fill-opacity=".2"
-    />
-    <path
-      d="M1116.26 1863.69c-355.457-78.98-720.318-535.27-825.287-1115.521l-1.594-8.816C185.286 163.833 112.786-237.016-762.678-643.898L-1822.83 608.665 571.922 2635.55l544.338-771.86Z"
-      fill="#A41C42"
-      fill-opacity=".2"
-    />
-  </svg>
-</div>
+<%!-- <div class="left-[40rem] fixed inset-y-0 right-0 z-0 hidden lg:block xl:left-[50rem]"></div> --%>
 <div class="px-4 py-10 sm:px-6 sm:py-28 lg:px-8 xl:px-28 xl:py-32">
   <div class="mx-auto max-w-xl lg:mx-0">
     <svg viewBox="0 0 71 48" class="h-12" aria-hidden="true">
@@ -234,4 +196,1111 @@
       </div>
     </div>
   </div>
+  <section>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="py-8 md:py-16">
+        <div class="md:flex md:justify-between">
+          <!-- Sidebar -->
+          <aside class="mb-8 md:mb-0 md:w-64 lg:w-72 md:ml-12 lg:ml-20 md:shrink-0 md:order-1">
+            <div class="sticky top-8">
+              <div class="relative bg-gray-50 rounded-xl border border-gray-200 p-5">
+                <div class="absolute top-5 right-5 leading-none">
+                  <button class="text-sm font-medium text-indigo-500 hover:underline">
+                    Clear
+                  </button>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-1 gap-6">
+                  <!-- Group 1 -->
+                  <div>
+                    <div class="text-sm text-gray-800 font-semibold mb-3">Job Type</div>
+                    <ul class="space-y-2">
+                      <li>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="form-checkbox" />
+                          <span class="text-sm text-gray-600 ml-2">Full-time</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="form-checkbox" />
+                          <span class="text-sm text-gray-600 ml-2">Part-time</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="form-checkbox" />
+                          <span class="text-sm text-gray-600 ml-2">Intership</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="form-checkbox" />
+                          <span class="text-sm text-gray-600 ml-2">Contract / Freelance</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="form-checkbox" />
+                          <span class="text-sm text-gray-600 ml-2">Co-founder</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Group 2 -->
+                  <div>
+                    <div class="text-sm text-gray-800 font-semibold mb-3">Job Roles</div>
+                    <ul class="space-y-2">
+                      <li>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="form-checkbox" checked />
+                          <span class="text-sm text-gray-600 ml-2">Programming</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="form-checkbox" />
+                          <span class="text-sm text-gray-600 ml-2">Design</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="form-checkbox" />
+                          <span class="text-sm text-gray-600 ml-2">Management / Finance</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="form-checkbox" />
+                          <span class="text-sm text-gray-600 ml-2">Customer Support</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="form-checkbox" />
+                          <span class="text-sm text-gray-600 ml-2">Sales / Marketing</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Group 3 -->
+                  <div>
+                    <div class="text-sm text-gray-800 font-semibold mb-3">Remote Only</div>
+                    <div class="flex items-center" x-data="{ checked: false }">
+                      <div class="form-switch">
+                        <input
+                          type="checkbox"
+                          id="remote-toggle"
+                          class="sr-only"
+                          x-model="checked"
+                        />
+                        <label class="bg-gray-300" for="remote-toggle">
+                          <span class="bg-white shadow-sm" aria-hidden="true"></span>
+                          <span class="sr-only">Remote Only</span>
+                        </label>
+                      </div>
+                      <div
+                        class="text-sm text-gray-400 italic ml-2"
+                        x-text="checked ? 'On' : 'Off'"
+                      >
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Group 3 -->
+                  <div>
+                    <div class="text-sm text-gray-800 font-semibold mb-3">Salary Range</div>
+                    <ul class="space-y-2">
+                      <li>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="form-checkbox" />
+                          <span class="text-sm text-gray-600 ml-2">$20K - $50K</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="form-checkbox" />
+                          <span class="text-sm text-gray-600 ml-2">$50K - $100K</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="form-checkbox" />
+                          <span class="text-sm text-gray-600 ml-2">&gt; $100K</span>
+                        </label>
+                      </li>
+                      <li>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="form-checkbox" />
+                          <span class="text-sm text-gray-600 ml-2">Drawing / Painting</span>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- Group 4 -->
+                  <div>
+                    <div class="text-sm text-gray-800 font-semibold mb-3">Location</div>
+                    <label class="sr-only">Location</label>
+                    <select class="form-select w-full">
+                      <option>Anywhere</option>
+                      <option>London</option>
+                      <option>San Francisco</option>
+                      <option>New York</option>
+                      <option>Berlin</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+          <!-- Main content -->
+          <div class="md:grow">
+            <!-- Job list -->
+            <div class="pb-8 md:pb-16">
+              <h2 class="text-3xl font-bold font-inter mb-10">Latest jobs</h2>
+              <!-- List container -->
+              <div class="flex flex-col">
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 group">
+                  <div class="px-4 py-6 bg-indigo-100 rounded-xl">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-01.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 01"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">Qonto</div>
+                            <svg
+                              class="w-3 h-3 shrink-0 fill-amber-400"
+                              viewBox="0 0 12 12"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path d="M11.143 5.143A4.29 4.29 0 0 1 6.857.857a.857.857 0 0 0-1.714 0A4.29 4.29 0 0 1 .857 5.143a.857.857 0 0 0 0 1.714 4.29 4.29 0 0 1 4.286 4.286.857.857 0 0 0 1.714 0 4.29 4.29 0 0 1 4.286-4.286.857.857 0 0 0 0-1.714Z" />
+                            </svg>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              Engineering Manager Developer Experience
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-indigo-50 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              $75K - $100K
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-indigo-50 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🇬🇧 London, UK
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            22d
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+                  <div class="px-4 py-6">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-02.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 02"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">Vimeo</div>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              Software Engineer Backend
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              Full Time
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🌎 Remote
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            2h
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+                  <div class="px-4 py-6">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-03.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 03"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">
+                              Robinhood
+                            </div>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              Senior Site Reliability Engineer
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              Full Time
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🌎 Remote
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            3h
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+                  <div class="px-4 py-6">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-04.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 04"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">GitHub</div>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              Remote Shopify Website Tester
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              $100K - $170K
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🇺🇸 NYC
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            4h
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+                  <div class="px-4 py-6">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-04.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 04"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">GitHub</div>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              Remote Senior Software Engineer
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              $100K - $170K
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🇺🇸 NYC
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            7h
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+                  <div class="px-4 py-6">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-01.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 01"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">Qonto</div>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              Senior Web App Designer
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              Contract
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🇬🇧 London, UK
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            12h
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+                  <div class="px-4 py-6">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-05.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 05"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">Revolut</div>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              Ruby on Rails Engineer
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              Full Time
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🌎 Remote
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            12h
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+                  <div class="px-4 py-6">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-06.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 06"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">HSBC</div>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              Senior Software Engineer Backend
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              Full Time
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🇮🇹 Milan, IT
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            20h
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+                  <div class="px-4 py-6">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-07.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 07"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">Twitter</div>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              React.js Software Developer
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              Full Time
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🌎 Remote
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            1d
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+                  <div class="px-4 py-6">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-08.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 08"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">Medium</div>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              Senior Client Engineer (React & React Native)
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              $55K - $100K
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🌎 Remote
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            1d
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+                  <div class="px-4 py-6">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-09.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 09"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">Twitch</div>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              Contract React Native Engineer
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              Full Time
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🌎 Remote
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            2d
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+                  <div class="px-4 py-6">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-10.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 10"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">Figma</div>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              QA Automation Engineer
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              Full Time
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🌎 Remote
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            2d
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+                  <div class="px-4 py-6">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-10.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 10"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">Figma</div>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              Senior Marketing Program Manager
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              Full Time
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🌎 Remote
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            2d
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+                  <div class="px-4 py-6">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-10.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 10"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">Figma</div>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              Senior Product Designer
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              Full Time
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🌎 Remote
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            2d
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+                  <div class="px-4 py-6">
+                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+                      <div class="shrink-0">
+                        <img
+                          src="./images/company-icon-11.svg"
+                          width="56"
+                          height="56"
+                          alt="Company 11"
+                        />
+                      </div>
+                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                        <div>
+                          <div class="flex items-start space-x-2">
+                            <div class="text-sm text-gray-800 font-semibold mb-1">Facebook</div>
+                          </div>
+                          <div class="mb-2">
+                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
+                              Remote Cyber Security Analyst US
+                            </a>
+                          </div>
+                          <div class="-m-1">
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              $55K - $100K
+                            </a>
+                            <a
+                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                              href="#0"
+                            >
+                              🇺🇸 United States
+                            </a>
+                          </div>
+                        </div>
+                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
+                          <div class="lg:hidden group-hover:lg:block">
+                            <a
+                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                              href="job-post.html"
+                            >
+                              Apply Now
+                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
+                                -&gt;
+                              </span>
+                            </a>
+                          </div>
+                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
+                            2d
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonials -->
+            <div>
+              <h2 class="text-3xl font-bold font-inter mb-10">Our customers love us</h2>
+              <!-- Testimonials container -->
+              <div class="space-y-10">
+                <!-- Item -->
+                <div class="p-5 rounded-xl bg-teal-50 border border-teal-200 odd:rotate-1 even:-rotate-1 hover:rotate-0 transition duration-150 ease-in-out">
+                  <div class="flex items-center space-x-5">
+                    <div class="relative shrink-0">
+                      <img
+                        class="rounded-full"
+                        src="./images/testimonial-01.jpg"
+                        width="102"
+                        height="102"
+                        alt="Testimonial 01"
+                      />
+                      <svg
+                        class="absolute top-0 right-0 fill-indigo-400"
+                        width="26"
+                        height="17"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M0 16.026h8.092l6.888-16h-4.592L0 16.026Zm11.02 0h8.092L26 .026h-4.65l-10.33 16Z" />
+                      </svg>
+                    </div>
+                    <figure>
+                      <blockquote class="text-lg font-bold m-0 pb-1">
+                        <p>
+                          Hiring a Senior Laravel engineer through JobBoard has been incredible. The best job board experience we've ever had.
+                        </p>
+                      </blockquote>
+                      <figcaption class="text-sm font-medium">
+                        Patrick Metzger, CEO
+                        <a class="text-teal-500 hover:underline" href="#0">App.com</a>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+                <!-- Item -->
+                <div class="p-5 rounded-xl bg-sky-50 border border-sky-200 odd:rotate-1 even:-rotate-1 hover:rotate-0 transition duration-150 ease-in-out">
+                  <div class="flex items-center space-x-5">
+                    <div class="relative shrink-0">
+                      <img
+                        class="rounded-full"
+                        src="./images/testimonial-02.jpg"
+                        width="102"
+                        height="102"
+                        alt="Testimonial 02"
+                      />
+                      <svg
+                        class="absolute top-0 right-0 fill-indigo-400"
+                        width="26"
+                        height="17"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M0 16.026h8.092l6.888-16h-4.592L0 16.026Zm11.02 0h8.092L26 .026h-4.65l-10.33 16Z" />
+                      </svg>
+                    </div>
+                    <figure>
+                      <blockquote class="text-lg font-bold m-0 pb-1">
+                        <p>
+                          Hiring a Senior Laravel engineer through JobBoard has been incredible. The best job board experience we've ever had.
+                        </p>
+                      </blockquote>
+                      <figcaption class="text-sm font-medium">
+                        Annie Patrick, CEO
+                        <a class="text-sky-500 hover:underline" href="#0">TrueThing</a>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
