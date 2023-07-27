@@ -100,6 +100,10 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
     {:noreply, assign_form(socket, changeset)}
   end
 
+  def handle_event("save", %{"business" => business_params}, socket) do
+    save_business(socket, socket.assigns.action, business_params)
+  end
+
   def params_with_image(socket, params) do
     path =
       socket
@@ -115,10 +119,6 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
     File.cp!(path, dest)
 
     {:ok, ~p"/images/#{filename}"}
-  end
-
-  def handle_event("save", %{"business" => business_params}, socket) do
-    save_business(socket, socket.assigns.action, business_params)
   end
 
   defp save_business(socket, :edit, business_params) do
