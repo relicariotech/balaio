@@ -43,6 +43,14 @@
   </:action>
 </.table>
 
+<div id="business" phx-update="stream">
+  <.business
+    :for={{business_id, business} <- @streams.business_collection}
+    business={business}
+    id={business_id}
+  />
+</div>
+
 <.modal
   :if={@live_action in [:new, :edit]}
   id="business-modal"

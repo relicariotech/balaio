@@ -1,5 +1,6 @@
 defmodule BalaioWeb.CustomComponents do
   use Phoenix.Component
+  use Phoenix.HTML
 
   def promo(assigns) do
     ~H"""

@@ -4,6 +4,8 @@ defmodule BalaioWeb.BusinessLive.Index do
   alias Balaio.Catalog
   alias Balaio.Catalog.Business
 
+  import BalaioWeb.CustomComponents
+
   @impl true
   def mount(_params, _session, socket) do
     {:ok, stream(socket, :business_collection, Catalog.list_business())}
