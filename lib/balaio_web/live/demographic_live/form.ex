@@ -2,7 +2,6 @@ defmodule BalaioWeb.DemographicLive.Form do
   use BalaioWeb, :live_component
   alias Balaio.Survey
   alias Balaio.Survey.Demographic
-  alias BalaioWeb.DemographicLive.Form
 
   # mount
 

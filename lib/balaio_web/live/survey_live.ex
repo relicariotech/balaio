@@ -1,10 +1,8 @@
 defmodule BalaioWeb.SurveyLive do
   use BalaioWeb, :live_view
 
-  alias __MODULE__.Component
   alias Balaio.Survey
   alias BalaioWeb.DemographicLive
-  alias BalaioWeb.DemographicLive.Form
 
   def mount(_params, _session, socket) do
     {:ok,
