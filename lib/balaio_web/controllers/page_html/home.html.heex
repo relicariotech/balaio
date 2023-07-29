@@ -1,14 +1,32 @@
 <.flash_group flash={@flash} />
-<%!-- <div class="left-[40rem] fixed inset-y-0 right-0 z-0 hidden lg:block xl:left-[50rem]"></div> --%>
-<div class="px-4 py-10 sm:px-6 sm:py-28 lg:px-8 xl:px-28 xl:py-32">
-  <.promo expiration={2}>
-    Save 25% on rentals!
-    <:legal>
-      <.icon name="hero-exclamation-circle" /> Limit 1 per party
-    </:legal>
-  </.promo>
+<!-- Site header -->
+<header class="absolute w-full z-30">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Site branding -->
+      <div class="shrink-0 mr-4">
+        <!-- Logo -->
+        <a class="block group" href="index.html" aria-label="Cruip">
+          <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path class="fill-indigo-500" d="M13.853 18.14 1 10.643 31 1l-.019.058z" />
+            <path class="fill-indigo-300" d="M13.853 18.14 30.981 1.058 21.357 31l-7.5-12.857z" />
+          </svg>
+        </a>
+      </div>
+      <!-- Desktop navigation -->
+    </div>
+  </div>
+</header>
 
+<div class="left-[40rem] fixed inset-y-0 right-0 z-0 hidden lg:block xl:left-[50rem]"></div>
+<div class="px-4 py-10 sm:px-6 sm:py-28 lg:px-8 xl:px-28 xl:py-32">
   <section>
+    <!-- Bg -->
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-indigo-100 to-white pointer-events-none -z-10"
+      aria-hidden="true"
+    >
+    </div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="py-8 md:py-16">
         <div class="md:flex md:justify-between">
@@ -167,141 +185,78 @@
           <!-- Main content -->
           <div class="md:grow">
             <!-- Job list -->
-            <div class="pb-8 md:pb-16">
+            <section>
+              <%!-- <h2 class="font-aspekta text-xl font-[650] mb-6">Negócios</h2> --%>
               <h2 class="text-3xl font-bold font-inter mb-10">Negócios</h2>
-              <!-- List container -->
-              <div class="flex flex-col">
-                <!-- Item -->
-                <div class="[&:nth-child(-n+12)]:-order-1 group">
-                  <div class="px-4 py-6 bg-indigo-100 rounded-xl">
-                    <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
-                      <div class="shrink-0">
-                        <img src={~p"/images/logo.svg"} width="56" height="56" alt="Company 01" />
-                      </div>
-                      <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
-                        <div>
-                          <div class="flex items-start space-x-2">
-                            <div class="text-sm text-gray-800 font-semibold mb-1">Qonto</div>
-                            <svg
-                              class="w-3 h-3 shrink-0 fill-amber-400"
-                              viewBox="0 0 12 12"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M11.143 5.143A4.29 4.29 0 0 1 6.857.857a.857.857 0 0 0-1.714 0A4.29 4.29 0 0 1 .857 5.143a.857.857 0 0 0 0 1.714 4.29 4.29 0 0 1 4.286 4.286.857.857 0 0 0 1.714 0 4.29 4.29 0 0 1 4.286-4.286.857.857 0 0 0 0-1.714Z" />
-                            </svg>
+              <!-- Cards -->
+              <div class="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-5">
+                <%= for business <- @businesses do %>
+                  <div class="flex flex-col h-full rounded-lg border border-slate-200 hover:border-slate-300 dark:border-slate-800 dark:hover:border-slate-700  dark:from-slate-800 dark:to-slate-800/30 transition-color ease-in-out p-5 group">
+                    <div class="grow">
+                      <div>
+                        <div class="flex items-center justify-between space-x-2">
+                          <div class="h-10 w-10 flex items-center justify-center border border-slate-200 dark:border-slate-700 rounded-md mb-2">
+                            <img
+                              class="rounded-md"
+                              src={business.thumbnail}
+                              width="56"
+                              height="56"
+                              alt="Business Image"
+                            />
                           </div>
-                          <div class="mb-2">
-                            <a class="text-lg text-gray-800 font-bold" href="job-post.html">
-                              Engineering Manager Developer Experience
-                            </a>
-                          </div>
-                          <div class="-m-1">
-                            <a
-                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-indigo-50 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
-                              href="#0"
-                            >
-                              $75K - $100K
-                            </a>
-                            <a
-                              class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-indigo-50 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
-                              href="#0"
-                            >
-                              🇬🇧 London, UK
-                            </a>
-                          </div>
-                        </div>
-                        <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
-                          <div class="lg:hidden group-hover:lg:block">
-                            <a
-                              class="btn-sm py-1.5 px-3 text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
-                              href="job-post.html"
-                            >
-                              Apply Now
-                              <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                                -&gt;
-                              </span>
-                            </a>
-                          </div>
-                          <div class="group-hover:lg:hidden text-sm italic text-gray-500">
-                            22d
-                          </div>
+                          <%!-- <div class="text-xs inline-flex items-center font-medium bg-green-100 text-green-600 rounded-full text-center px-2 h-5">
+                            Open-Source
+                          </div> --%>
+                          <%= if business.is_delivery == true do %>
+                            <.icon name="hero-truck" class="w-5 h-5 text-gray-500" />
+                          <% else %>
+                          <% end %>
                         </div>
                       </div>
+                      <div class="text-lg font-aspekta font-[650] mb-1">
+                        <.link
+                          navigate={~p"/negocio/#{business}"}
+                          class="text-lg text-gray-800 font-bold"
+                        >
+                          <%= business.name %>
+                        </.link>
+                      </div>
+                      <p class="text-sm text-slate-500 dark:text-slate-400 mb-2">
+                        <%= business.description %>
+                      </p>
+                      <a
+                        class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
+                        href="#0"
+                      >
+                        <%= business.category %>
+                      </a>
                     </div>
-                  </div>
-                </div>
-                <%!-- <div>
-                  <.live_component module={UserComponent} id="hero" />
-                </div> --%>
-                <!-- Item -->
-                <%= for biz <- @businesses do %>
-                  <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
-                    <div class="px-4 py-6">
-                      <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
-                        <div class="shrink-0">
-                          <img
-                            class="rounded-md"
-                            src={biz.thumbnail}
-                            width="56"
-                            height="56"
-                            alt="Business Image"
-                          />
-                        </div>
-                        <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
-                          <div>
-                            <%!-- <div class="flex items-start space-x-2">
-                              <div class="text-sm text-gray-800 font-semibold mb-1">Vimeo</div>
-                            </div> --%>
-                            <div class="mb-2">
-                              <.link
-                                navigate={~p"/negocio/#{biz}"}
-                                class="text-lg text-gray-800 font-bold"
-                              >
-                                <%= biz.name %>
-                              </.link>
-                            </div>
-                            <div class="-m-1">
-                              <a
-                                class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
-                                href="#0"
-                              >
-                                <%= biz.category %>
-                              </a>
-                              <a
-                                class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
-                                href="#0"
-                              >
-                                🌎 Remote
-                              </a>
-                            </div>
-                          </div>
-                          <div class="min-w-[120px] flex items-center lg:justify-end space-x-3 lg:space-x-0">
-                            <div class="lg:hidden group-hover:lg:block">
-                              <a
-                                class="btn-sm py-1.5 px-3 rounded-full text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
-                                href="job-post.html"
-                              >
-                                veja mais
-                                <span class="tracking-normal text-indigo-200 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">
-                                  -&gt;
-                                </span>
-                              </a>
-                            </div>
-                            <div class="group-hover:lg:hidden text-sm italic text-gray-500">
-                              <%= if biz.is_delivery == true do %>
-                                <.icon name="hero-truck" class="w-5 h-5" />
-                              <% else %>
-                              <% end %>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    <div class="text-sky-500 flex justify-end">
+                      <.link
+                        navigate={~p"/negocio/#{business}"}
+                        class="btn-sm py-1.5 px-3 rounded-full text-white bg-indigo-500 hover:bg-indigo-600 group shadow-sm"
+                      >
+                        <svg
+                          class="fill-current group-hover:rotate-0 transition-transform ease-out"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="14"
+                          height="12"
+                        >
+                          <path d="M9.586 5 6.293 1.707 7.707.293 13.414 6l-5.707 5.707-1.414-1.414L9.586 7H0V5h9.586Z" />
+                        </svg>
+                      </.link>
                     </div>
                   </div>
                 <% end %>
-                <!-- Item -->
               </div>
-            </div>
+            </section>
+
+            <.promo expiration={2}>
+              Save 25% on rentals!
+              <:legal>
+                <.icon name="hero-exclamation-circle" /> Limit 1 per party
+              </:legal>
+            </.promo>
             <!-- Testimonials -->
             <div>
               <h2 class="text-3xl font-bold font-inter mb-10">Our customers love us</h2>
