@@ -46,4 +46,23 @@ defmodule Balaio.CatalogFixtures do
 
     business
   end
+
+  @doc """
+  Generate a unique category title.
+  """
+  def unique_category_title, do: "some title#{System.unique_integer([:positive])}"
+
+  @doc """
+  Generate a category.
+  """
+  def category_fixture(attrs \\ %{}) do
+    {:ok, category} =
+      attrs
+      |> Enum.into(%{
+        title: unique_category_title()
+      })
+      |> Balaio.Catalog.create_category()
+
+    category
+  end
 end
