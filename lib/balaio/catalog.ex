@@ -7,6 +7,7 @@ defmodule Balaio.Catalog do
   alias Balaio.Repo
 
   alias Balaio.Catalog.Business
+  alias Balaio.Catalog.Category
 
   @doc """
   Returns the list of business.
@@ -35,7 +36,9 @@ defmodule Balaio.Catalog do
       ** (Ecto.NoResultsError)
 
   """
-  def get_business!(id), do: Repo.get!(Business, id)
+  def get_business!(id), do
+    Business |> Repo.get!(id) |> Repo.preload(:categories)
+  end
 
   @doc """
   Creates a business.
@@ -51,7 +54,7 @@ defmodule Balaio.Catalog do
   """
   def create_business(attrs \\ %{}) do
     %Business{}
-    |> Business.changeset(attrs)
+    |> change_business(attrs)
     |> Repo.insert()
   end
 
@@ -69,7 +72,7 @@ defmodule Balaio.Catalog do
   """
   def update_business(%Business{} = business, attrs) do
     business
-    |> Business.changeset(attrs)
+    |> change_business(attrs)
     |> Repo.update()
   end
 
@@ -99,7 +102,16 @@ defmodule Balaio.Catalog do
 
   """
   def change_business(%Business{} = business, attrs \\ %{}) do
-    Business.changeset(business, attrs)
+    categories = list_categories_by_id(attrs["category_ids"])
+    business
+    |> Repo.preload(:categories)
+    |> Business.changeset(attrs)
+    |> Ecto.Changeset.put_assoc(:categories, categories)
+  end
+
+  def list_categories_by_id(nil), do: []
+  def list_categories_by_id(category_ids) do
+    Repo.all(from c in Category, where: c.id in ^category_ids)
   end
 
   alias Balaio.Catalog.Category
