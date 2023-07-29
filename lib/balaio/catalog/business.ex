@@ -2,6 +2,8 @@ defmodule Balaio.Catalog.Business do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Balaio.Catalog.Category
+
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
   schema "business" do
@@ -13,6 +15,8 @@ defmodule Balaio.Catalog.Business do
     field :thumbnail, :string
     field :is_delivery, :boolean, default: false
     field :user_id, :binary_id
+
+    many_to_many :categories, Category, join_through: "business_categories", on_replace: :delete
 
     timestamps()
   end
