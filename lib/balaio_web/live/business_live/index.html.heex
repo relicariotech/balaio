@@ -2,7 +2,7 @@
   Business
   <:actions>
     <.link patch={~p"/business/new"}>
-      <.button>+ Add Business</.button>
+      <.button><.icon name="hero-plus-circle" class="w-5 h-5" /> Add Business</.button>
     </.link>
   </:actions>
 </.header>
@@ -30,14 +30,16 @@
     <div class="sr-only">
       <.link navigate={~p"/negocios/#{business}"}>Show</.link>
     </div>
-    <.link patch={~p"/business/#{business}/edit"}>Edit</.link>
+    <.link patch={~p"/business/#{business}/edit"}>
+      <.icon name="hero-pencil-square" class="w-5 h-5" />
+    </.link>
   </:action>
   <:action :let={{id, business}}>
     <.link
       phx-click={JS.push("delete", value: %{id: business.id}) |> hide("##{id}")}
       data-confirm="Are you sure?"
     >
-      Delete
+      <.icon name="hero-trash" class="w-5 h-5" />
     </.link>
   </:action>
 </.table>
