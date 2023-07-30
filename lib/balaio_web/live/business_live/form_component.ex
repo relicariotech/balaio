@@ -27,6 +27,13 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
         <.input field={@form[:category]} type="text" label="Category" />
         <%!-- <.input field={@form[:thumbnail]} type="text" label="Thumbnail" /> --%>
         <.input field={@form[:is_delivery]} type="checkbox" label="Is delivery" />
+        <.input
+          field={@form[:category_ids]}
+          type="select"
+          multiple={true}
+          options={category_opts(@changeset)}
+        />
+
         <div id="images">
           <div
             class="p-4 border-2 border-dashed border-slate-300 rounded-md text-center text-slate-600"
@@ -71,6 +78,16 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
       </.simple_form>
     </div>
     """
+  end
+
+  def category_opts(changeset) do
+    existing_ids =
+      changeset
+      |> Ecto.Changeset.get_change(:categories, [])
+      |> Enum.map(& &1.data.id)
+
+    for cat <- Balaio.Catalog.list_categories(),
+        do: [key: cat.title, value: cat.id, selected: cat.id in existing_ids]
   end
 
   @impl true

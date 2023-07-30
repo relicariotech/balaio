@@ -36,7 +36,7 @@ defmodule Balaio.Catalog do
       ** (Ecto.NoResultsError)
 
   """
-  def get_business!(id), do
+  def get_business!(id) do
     Business |> Repo.get!(id) |> Repo.preload(:categories)
   end
 
@@ -103,6 +103,7 @@ defmodule Balaio.Catalog do
   """
   def change_business(%Business{} = business, attrs \\ %{}) do
     categories = list_categories_by_id(attrs["category_ids"])
+
     business
     |> Repo.preload(:categories)
     |> Business.changeset(attrs)
@@ -110,6 +111,7 @@ defmodule Balaio.Catalog do
   end
 
   def list_categories_by_id(nil), do: []
+
   def list_categories_by_id(category_ids) do
     Repo.all(from c in Category, where: c.id in ^category_ids)
   end
