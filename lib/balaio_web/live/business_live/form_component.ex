@@ -25,13 +25,12 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
         <.input field={@form[:phone]} type="text" label="Phone" />
         <.input field={@form[:address]} type="text" label="Address" />
         <.input field={@form[:category]} type="text" label="Category" />
-        <%!-- <.input field={@form[:thumbnail]} type="text" label="Thumbnail" /> --%>
         <.input field={@form[:is_delivery]} type="checkbox" label="Is delivery" />
         <.input
           field={@form[:category_ids]}
           type="select"
           multiple={true}
-          options={category_opts(@changeset)}
+          options={category_opts(@form)}
         />
 
         <div id="images">
@@ -80,16 +79,6 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
     """
   end
 
-  def category_opts(changeset) do
-    existing_ids =
-      changeset
-      |> Ecto.Changeset.get_change(:categories, [])
-      |> Enum.map(& &1.data.id)
-
-    for cat <- Balaio.Catalog.list_categories(),
-        do: [key: cat.title, value: cat.id, selected: cat.id in existing_ids]
-  end
-
   @impl true
   def update(%{business: business} = assigns, socket) do
     changeset = Catalog.change_business(business)
@@ -112,6 +101,7 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
     changeset =
       socket.assigns.business
       |> Catalog.change_business(business_params)
+      |> Map.put(:categories, business_params["category_ids"])
       |> Map.put(:action, :validate)
 
     {:noreply, assign_form(socket, changeset)}
@@ -119,6 +109,18 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
 
   def handle_event("save", %{"business" => business_params}, socket) do
     save_business(socket, socket.assigns.action, business_params)
+  end
+
+  def category_opts(nil), do: category_opts(%{source: %Ecto.Changeset{}})
+
+  def category_opts(%{source: changeset} = _form) do
+    existing_ids =
+      changeset
+      |> Ecto.Changeset.get_change(:categories, [])
+      |> Enum.map(& &1.data.id)
+
+    for cat <- Balaio.Catalog.list_categories(),
+        do: [key: cat.title, value: cat.id, selected: cat.id in existing_ids]
   end
 
   def params_with_image(socket, params) do
@@ -141,6 +143,10 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
   defp save_business(socket, :edit, business_params) do
     business_params = params_with_image(socket, business_params)
 
+    category_ids = Enum.map(business_params["category_ids"])
+
+    business_params = Map.put(business_params, "category_ids", category_ids)
+
     case Catalog.update_business(socket.assigns.business, business_params) do
       {:ok, business} ->
         notify_parent({:saved, business})
@@ -157,6 +163,10 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
 
   defp save_business(socket, :new, business_params) do
     business_params = params_with_image(socket, business_params)
+
+    category_ids = Enum.map(business_params["category_ids"])
+
+    business_params = Map.put(business_params, "category_ids", category_ids)
 
     case Catalog.create_business(business_params) do
       {:ok, business} ->
