@@ -2,6 +2,7 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
   use BalaioWeb, :live_component
 
   alias Balaio.Catalog
+  alias Balaio.Catalog.BusinessCategory
 
   @impl true
   def render(assigns) do
@@ -26,13 +27,18 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
         <.input field={@form[:address]} type="text" label="Address" />
         <.input field={@form[:category]} type="text" label="Category" />
         <.input field={@form[:is_delivery]} type="checkbox" label="Is delivery" />
-        <.input
-          field={@form[:category_ids]}
-          type="select"
-          multiple={true}
-          options={category_opts(@form)}
-        />
-
+        <div id="categories" class="space-y-2">
+          <.inputs_for :let={b_category} field={@form[:business_categories]}>
+            <div class="flex space-x-2 drag-item">
+              <.input
+                type="select"
+                field={b_category[:category_id]}
+                placeholder="Category"
+                options={@categories}
+              />
+            </div>
+          </.inputs_for>
+        </div>
         <div id="images">
           <div
             class="p-4 border-2 border-dashed border-slate-300 rounded-md text-center text-slate-600"
@@ -81,12 +87,13 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
 
   @impl true
   def update(%{business: business} = assigns, socket) do
-    changeset = Catalog.change_business(business)
+    business_changeset = Catalog.change_business(business)
 
     {:ok,
      socket
      |> assign(assigns)
-     |> assign_form(changeset)
+     |> assign_form(business_changeset)
+     |> assign_categories()
      |> allow_upload(
        :image,
        accept: ~w(.jpg .jpeg .png),
@@ -96,31 +103,26 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
      )}
   end
 
+  defp assign_categories(socket) do
+    categories =
+      Catalog.list_categories()
+      |> Enum.map(&{&1.title, &1.id})
+
+    assign(socket, :categories, categories)
+  end
+
   @impl true
-  def handle_event("validate", %{"business" => business_params}, socket) do
+  def handle_event("validate", %{"business" => business_params}, _params, socket) do
     changeset =
       socket.assigns.business
       |> Catalog.change_business(business_params)
-      |> Map.put(:categories, business_params["category_ids"])
       |> Map.put(:action, :validate)
 
     {:noreply, assign_form(socket, changeset)}
   end
 
-  def handle_event("save", %{"business" => business_params}, socket) do
+  def handle_event("save", %{"business" => business_params}, _param, socket) do
     save_business(socket, socket.assigns.action, business_params)
-  end
-
-  def category_opts(nil), do: category_opts(%{source: %Ecto.Changeset{}})
-
-  def category_opts(%{source: changeset} = _form) do
-    existing_ids =
-      changeset
-      |> Ecto.Changeset.get_change(:categories, [])
-      |> Enum.map(& &1.data.id)
-
-    for cat <- Balaio.Catalog.list_categories(),
-        do: [key: cat.title, value: cat.id, selected: cat.id in existing_ids]
   end
 
   def params_with_image(socket, params) do
@@ -143,10 +145,6 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
   defp save_business(socket, :edit, business_params) do
     business_params = params_with_image(socket, business_params)
 
-    category_ids = Enum.map(business_params["category_ids"])
-
-    business_params = Map.put(business_params, "category_ids", category_ids)
-
     case Catalog.update_business(socket.assigns.business, business_params) do
       {:ok, business} ->
         notify_parent({:saved, business})
@@ -164,10 +162,6 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
   defp save_business(socket, :new, business_params) do
     business_params = params_with_image(socket, business_params)
 
-    category_ids = Enum.map(business_params["category_ids"])
-
-    business_params = Map.put(business_params, "category_ids", category_ids)
-
     case Catalog.create_business(business_params) do
       {:ok, business} ->
         notify_parent({:saved, business})
@@ -183,7 +177,15 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
   end
 
   defp assign_form(socket, %Ecto.Changeset{} = changeset) do
-    assign(socket, :form, to_form(changeset))
+    if Ecto.Changeset.get_field(changeset, :business_categories) == [] do
+      business_category = %BusinessCategory{}
+
+      changeset = Ecto.Changeset.put_change(changeset, :business_categories, [business_category])
+
+      assign(socket, :form, to_form(changeset))
+    else
+      assign(socket, :form, to_form(changeset))
+    end
   end
 
   defp notify_parent(msg), do: send(self(), {__MODULE__, msg})

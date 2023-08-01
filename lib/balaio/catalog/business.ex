@@ -3,6 +3,7 @@ defmodule Balaio.Catalog.Business do
   import Ecto.Changeset
 
   alias Balaio.Catalog.Category
+  alias Balaio.Catalog.BusinessCategory
 
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
@@ -16,7 +17,9 @@ defmodule Balaio.Catalog.Business do
     field :is_delivery, :boolean, default: false
     field :user_id, :binary_id
 
-    many_to_many :categories, Category, join_through: "business_categories", on_replace: :delete
+    has_many :business_categories, BusinessCategory, on_replace: :delete
+
+    has_many :categories, through: [:business_categories, :category]
 
     timestamps()
   end
@@ -42,6 +45,7 @@ defmodule Balaio.Catalog.Business do
       :thumbnail,
       :is_delivery
     ])
+    |> cast_assoc(:business_categories, with: &BusinessCategory.changeset/2)
     |> unique_constraint(:user_id)
   end
 end

@@ -36,9 +36,7 @@ defmodule Balaio.Catalog do
       ** (Ecto.NoResultsError)
 
   """
-  def get_business!(id) do
-    Business |> Repo.get!(id) |> Repo.preload(:categories)
-  end
+  def get_business!(id), do: Repo.get!(Business, id)
 
   @doc """
   Creates a business.
@@ -54,7 +52,7 @@ defmodule Balaio.Catalog do
   """
   def create_business(attrs \\ %{}) do
     %Business{}
-    |> change_business(attrs)
+    |> Business.changeset(attrs)
     |> Repo.insert()
   end
 
@@ -72,7 +70,7 @@ defmodule Balaio.Catalog do
   """
   def update_business(%Business{} = business, attrs) do
     business
-    |> change_business(attrs)
+    |> Business.changeset(attrs)
     |> Repo.update()
   end
 
@@ -102,12 +100,7 @@ defmodule Balaio.Catalog do
 
   """
   def change_business(%Business{} = business, attrs \\ %{}) do
-    categories = list_categories_by_id(attrs["category_ids"])
-
-    business
-    |> Repo.preload(:categories)
-    |> Business.changeset(attrs)
-    |> Ecto.Changeset.put_assoc(:categories, categories)
+    Business.changeset(business, attrs)
   end
 
   def list_categories_by_id(nil), do: []
