@@ -112,7 +112,7 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
   end
 
   @impl true
-  def handle_event("validate", %{"business" => business_params}, _params, socket) do
+  def handle_event("validate", %{"business" => business_params} = _params, socket) do
     changeset =
       socket.assigns.business
       |> Catalog.change_business(business_params)
@@ -121,7 +121,7 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
     {:noreply, assign_form(socket, changeset)}
   end
 
-  def handle_event("save", %{"business" => business_params}, _param, socket) do
+  def handle_event("save", %{"business" => business_params} = _param, socket) do
     save_business(socket, socket.assigns.action, business_params)
   end
 
