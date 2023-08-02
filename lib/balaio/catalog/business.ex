@@ -42,7 +42,11 @@ defmodule Balaio.Catalog.Business do
       :thumbnail,
       :is_delivery
     ])
-    |> cast_assoc(:business_categories, with: &BusinessCategory.changeset/2)
+    |> cast_assoc(:business_categories,
+      with: &BusinessCategory.changeset/2,
+      sort_param: :categories_order,
+      drop_param: :categories_delete
+    )
     |> unique_constraint(:user_id)
   end
 end

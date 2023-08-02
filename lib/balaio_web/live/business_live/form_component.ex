@@ -26,18 +26,43 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
         <.input field={@form[:phone]} type="text" label="Phone" />
         <.input field={@form[:address]} type="text" label="Address" />
         <.input field={@form[:is_delivery]} type="checkbox" label="Is delivery" />
+
+        <h1 class="text-md font-semibold leading-8 text-zinc-800">
+          Categories
+        </h1>
+
         <div id="categories" class="space-y-2">
           <.inputs_for :let={b_category} field={@form[:business_categories]}>
             <div class="flex space-x-2 drag-item">
+              <.icon name="hero-bars-3" class="w-6 h-6 relative top-2" data-handle />
+              <input type="hidden" name="business[categories_order][]" value={b_category.index} />
+
               <.input
                 type="select"
                 field={b_category[:category_id]}
                 placeholder="Category"
                 options={@categories}
               />
+
+              <label>
+                <input
+                  type="checkbox"
+                  name="business[categories_delete][]"
+                  value={b_category.index}
+                  class="hidden"
+                />
+                <.icon name="hero-x-mark" class="w-6 h-6 relative top-2" />
+              </label>
             </div>
           </.inputs_for>
         </div>
+        <:actions>
+          <label class="block cursor-pointer">
+            <input type="checkbox" name="business[categories_order][]" class="hidden" />
+            <.icon name="hero-plus-circle" /> add more
+          </label>
+        </:actions>
+
         <div id="images">
           <div
             class="p-4 border-2 border-dashed border-slate-300 rounded-md text-center text-slate-600"
