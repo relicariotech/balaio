@@ -62,7 +62,6 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
             <.icon name="hero-plus-circle" /> add more
           </label>
         </:actions>
-
         <div id="images">
           <div
             class="p-4 border-2 border-dashed border-slate-300 rounded-md text-center text-slate-600"

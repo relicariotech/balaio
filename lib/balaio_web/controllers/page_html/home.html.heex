@@ -228,7 +228,9 @@
                         class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 hover:text-gray-600 rounded-md m-1 whitespace-nowrap transition duration-150 ease-in-out"
                         href="#0"
                       >
-                        <%= business.category %>
+                        <div :for={category <- business.categories}>
+                          <span><%= category.title %></span>
+                        </div>
                       </a>
                     </div>
                     <div class="text-sky-500 flex justify-end">
