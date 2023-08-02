@@ -25,7 +25,6 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
         <.input field={@form[:description]} type="text" label="Description" />
         <.input field={@form[:phone]} type="text" label="Phone" />
         <.input field={@form[:address]} type="text" label="Address" />
-        <.input field={@form[:category]} type="text" label="Category" />
         <.input field={@form[:is_delivery]} type="checkbox" label="Is delivery" />
         <div id="categories" class="space-y-2">
           <.inputs_for :let={b_category} field={@form[:business_categories]}>

@@ -11,7 +11,6 @@ defmodule Balaio.Catalog.Business do
     field :name, :string
     field :address, :string
     field :description, :string
-    field :category, :string
     field :phone, :string
     field :thumbnail, :string
     field :is_delivery, :boolean, default: false
@@ -32,7 +31,6 @@ defmodule Balaio.Catalog.Business do
       :description,
       :phone,
       :address,
-      :category,
       :thumbnail,
       :is_delivery
     ])
@@ -41,7 +39,6 @@ defmodule Balaio.Catalog.Business do
       :description,
       :phone,
       :address,
-      :category,
       :thumbnail,
       :is_delivery
     ])
