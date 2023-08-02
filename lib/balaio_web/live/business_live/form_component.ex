@@ -34,7 +34,6 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
         <div id="categories" class="space-y-2">
           <.inputs_for :let={b_category} field={@form[:business_categories]}>
             <div class="flex space-x-2 drag-item">
-              <.icon name="hero-bars-3" class="w-6 h-6 relative top-2" data-handle />
               <input type="hidden" name="business[categories_order][]" value={b_category.index} />
 
               <.input
