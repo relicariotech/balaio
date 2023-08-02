@@ -43,7 +43,7 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
                 options={@categories}
               />
 
-              <label>
+              <label class="cursor-pointer">
                 <input
                   type="checkbox"
                   name="business[categories_delete][]"
