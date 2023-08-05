@@ -2,6 +2,7 @@ defmodule Balaio.Catalog.Business do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Balaio.Accounts.User
   alias Balaio.Catalog.Category
   alias Balaio.Catalog.BusinessCategory
 
@@ -14,7 +15,8 @@ defmodule Balaio.Catalog.Business do
     field :phone, :string
     field :thumbnail, :string
     field :is_delivery, :boolean, default: false
-    field :user_id, :binary_id
+    # field :user_id, :binary_id
+    belongs_to :user, User
 
     has_many :business_categories, BusinessCategory, on_replace: :delete
 
@@ -32,7 +34,8 @@ defmodule Balaio.Catalog.Business do
       :phone,
       :address,
       :thumbnail,
-      :is_delivery
+      :is_delivery,
+      :user_id
     ])
     |> validate_required([
       :name,
@@ -40,13 +43,15 @@ defmodule Balaio.Catalog.Business do
       :phone,
       :address,
       :thumbnail,
-      :is_delivery
+      :is_delivery,
+      :user_id
     ])
     |> cast_assoc(:business_categories,
       with: &BusinessCategory.changeset/2,
       sort_param: :categories_order,
       drop_param: :categories_delete
     )
-    |> unique_constraint(:user_id)
+
+    # |> unique_constraint(:name, :name)
   end
 end
