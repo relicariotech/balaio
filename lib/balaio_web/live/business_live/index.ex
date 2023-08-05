@@ -3,8 +3,10 @@ defmodule BalaioWeb.BusinessLive.Index do
 
   alias Balaio.Catalog
   alias Balaio.Catalog.Business
+  alias Balaio.Catalog.Category
 
   import BalaioWeb.CustomComponents
+  import BalaioWeb.Components
 
   @impl true
   def mount(_params, _session, socket) do
@@ -45,5 +47,9 @@ defmodule BalaioWeb.BusinessLive.Index do
     {:ok, _} = Catalog.delete_business(business)
 
     {:noreply, stream_delete(socket, :business_collection, business)}
+  end
+
+  defp current_user(socket) do
+    socket.assigns.current_user
   end
 end
