@@ -24,6 +24,20 @@ defmodule Balaio.Catalog do
     |> Repo.preload(:categories)
   end
 
+  defp filter_by_category_id(query, category_id) do
+    from b in query,
+      join: bc in assoc(b, :categories),
+      where: bc.id == ^category_id,
+      preload: [:categories]
+  end
+
+  def filter_by_category(category_id) do
+    query = from(b in Business)
+
+    filter_by_category_id(query, category_id)
+    |> Repo.all()
+  end
+
   @doc """
   Gets a single business.
 
@@ -52,6 +66,14 @@ defmodule Balaio.Catalog do
       {:error, %Ecto.Changeset{}}
 
   """
+
+  # def create_business(user, attrs \\ %{}) do
+  #   user
+  #   |> Ecto.build_assoc(:business)
+  #   |> Business.changeset(attrs)
+  #   |> Repo.insert()
+  # end
+
   def create_business(attrs \\ %{}) do
     %Business{}
     |> Business.changeset(attrs)
