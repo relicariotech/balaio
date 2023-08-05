@@ -10,6 +10,8 @@ defmodule Balaio.Catalog.Category do
     field :title, :string
 
     many_to_many :business, BusinessCategory, join_through: "business_categories"
+
+    timestamps()
   end
 
   @doc false
