@@ -220,4 +220,16 @@ defmodule Balaio.Catalog do
   def change_category(%Category{} = category, attrs \\ %{}) do
     Category.changeset(category, attrs)
   end
+
+  def business_with_categories do
+    Business.Query.filter_by_category()
+    |> Repo.all()
+  end
+
+  def business_with_categories(%{
+        category_filter: category_filter
+      }) do
+    Business.Query.filter_by_category(category_filter)
+    |> Repo.all()
+  end
 end
