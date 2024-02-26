@@ -1,3 +1,17 @@
+<div>
+  <p>
+    <.color_button>
+      Sem o color
+    </.color_button>
+    <.color_button color="bg-yellow-500">
+      Dentro do Component
+    </.color_button>
+    <.color_button color="bg-gray-500">
+      <i>Press me</i>
+    </.color_button>
+  </p>
+</div>
+
 <.header>
   Business
   <:actions>
@@ -14,11 +28,6 @@
 >
   <:col :let={{_id, business}} label="Name"><%= business.name %></:col>
   <:col :let={{_id, business}} label="Description"><%= business.description %></:col>
-  <%!-- <:col :let={{_id, business}} label="Categories">
-    <div :for={category <- business.categories}>
-      <span><%= category.title %></span>
-    </div>
-  </:col> --%>
   <:col :let={{_id, business}} label="Phone"><%= business.phone %></:col>
   <:col :let={{_id, business}} label="Address"><%= business.address %></:col>
   <:col :let={{_id, business}} label="Image upload">
@@ -32,7 +41,7 @@
   </:col>
   <:action :let={{_id, business}}>
     <div class="sr-only">
-      <.link navigate={~p"/negocios/#{business}"}>Show</.link>
+      <.link navigate={~p"/negocio/#{business}"}>Show</.link>
     </div>
     <.link patch={~p"/business/#{business}/edit"}>
       <.icon name="hero-pencil-square" class="w-5 h-5" />
@@ -44,6 +53,7 @@
       data-confirm="Are you sure?"
     >
       <.icon name="hero-trash" class="w-5 h-5" />
+      <.icon name="hero-x-mark-solid" />
     </.link>
   </:action>
 </.table>
@@ -60,6 +70,7 @@
     title={@page_title}
     action={@live_action}
     business={@business}
+    current_user={@current_user}
     patch={~p"/business"}
   />
 </.modal>

@@ -22,6 +22,7 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
+        <.input field={@form[:user_id]} type="hidden" value={@current_user.id} />
         <.input field={@form[:name]} type="text" label="Name" />
         <.input field={@form[:description]} type="text" label="Description" />
         <.input field={@form[:phone]} type="text" label="Phone" />
@@ -51,7 +52,7 @@ defmodule BalaioWeb.BusinessLive.FormComponent do
                   value={b_category.index}
                   class="hidden"
                 />
-                <.icon name="hero-x-mark" class="w-6 h-6 relative top-2" />
+                <.icon name="hero-trash" class="w-4 h-4 relative top-2" />
               </label>
             </div>
           </.inputs_for>
