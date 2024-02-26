@@ -32,7 +32,9 @@ defmodule BalaioWeb.Router do
     live "/negocio/:id", BusinessLive.Show, :show
   end
 
-  scope "/admin", BalaioWeb do
+  # The Admin namespace
+  # See here https://hexdocs.pm/phoenix/routing.html#scoped-routes
+  scope "/admin", BalaioWeb.Admin do
     pipe_through [:auth]
 
     live "/business", BusinessLive.Index, :index

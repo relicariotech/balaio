@@ -1,0 +1,44 @@
+<.header>
+  <%= @business.name %>
+  <:subtitle>This is a business record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/business/#{@business}/show/edit"} phx-click={JS.push_focus()}>
+      <.button><.icon name="hero-pencil-square" class="w-5 h-5" /> Edit business</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Name"><%= @business.name %></:item>
+  <:item title="Description"><%= @business.description %></:item>
+
+  <:item title="Phone"><%= @business.phone %></:item>
+  <:item title="Address"><%= @business.address %></:item>
+  <:item title="Is delivery"><%= @business.is_delivery %></:item>
+</.list>
+<div class="mt-4">
+  <.label>Imagem</.label>
+  <div class="grid justify-center md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7 my-10">
+    <figure class="rounded-lg border shadow-md max-w-xs md:max-w-none">
+      <img src={@business.thumbnail} />
+    </figure>
+  </div>
+</div>
+
+<.back navigate={~p"/negocios"}>Negócios</.back>
+
+<.modal
+  :if={@live_action == :edit}
+  id="business-modal"
+  show
+  on_cancel={JS.patch(~p"/business/#{@business}")}
+>
+  <.live_component
+    module={BalaioWeb.BusinessLive.FormComponent}
+    id={@business.id}
+    title={@page_title}
+    action={@live_action}
+    business={@business}
+    patch={~p"/business/#{@business}"}
+  />
+</.modal>
