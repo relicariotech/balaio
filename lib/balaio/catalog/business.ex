@@ -3,7 +3,6 @@ defmodule Balaio.Catalog.Business do
   import Ecto.Changeset
 
   alias Balaio.Accounts.User
-  alias Balaio.Catalog.Category
   alias Balaio.Catalog.BusinessCategory
 
   @primary_key {:id, :binary_id, autogenerate: true}
