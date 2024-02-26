@@ -32,15 +32,6 @@ defmodule BalaioWeb.Router do
     live "/negocio/:id", BusinessLive.Show, :show
   end
 
-  # The Admin namespace
-  # See here https://hexdocs.pm/phoenix/routing.html#scoped-routes
-  scope "/admin", BalaioWeb.Admin do
-    pipe_through [:auth]
-
-    live "/business", BusinessLive.Index, :index
-    live "/business/:id", BusinessLive.Show, :show
-  end
-
   # Other scopes may use custom stacks.
   # scope "/api", BalaioWeb do
   #   pipe_through :api
@@ -87,15 +78,23 @@ defmodule BalaioWeb.Router do
       live "/users/settings", UserSettingsLive, :edit
       live "/users/settings/confirm_email/:token", UserSettingsLive, :confirm_email
 
-      # Business
-      live "/business", BusinessLive.Index, :index
+      live "/survey", SurveyLive, :index
+    end
+  end
 
+  # The Admin namespace
+  # See here https://hexdocs.pm/phoenix/routing.html#scoped-routes
+  live_session :admins,
+    root_layout: {BalaioWeb.Layouts, :root},
+    on_mount: {BalaioWeb.UserAuth, :mount_current_user} do
+    scope "/admin", BalaioWeb.Admin do
+      pipe_through :auth
+
+      live "/business", BusinessLive.Index, :index
       live "/business/new", BusinessLive.Index, :new
       live "/business/:id/edit", BusinessLive.Index, :edit
       live "/business/:id", BusinessLive.Show, :show
       live "/business/:id/show/edit", BusinessLive.Show, :edit
-
-      live "/survey", SurveyLive, :index
     end
   end
 

@@ -1,7 +1,7 @@
 <.header>
   Business
   <:actions>
-    <.link patch={~p"/business/new"}>
+    <.link patch={~p"/admin/business/new"}>
       <.button><.icon name="hero-plus-circle" class="w-5 h-5" /> Add Business</.button>
     </.link>
   </:actions>
@@ -10,7 +10,7 @@
 <.table
   id="business"
   rows={@streams.business_collection}
-  row_click={fn {_id, business} -> JS.navigate(~p"/business/#{business}") end}
+  row_click={fn {_id, business} -> JS.navigate(~p"/admin/business/#{business}") end}
 >
   <:col :let={{_id, business}} label="Name"><%= business.name %></:col>
   <:col :let={{_id, business}} label="Description"><%= business.description %></:col>
@@ -32,9 +32,9 @@
   </:col>
   <:action :let={{_id, business}}>
     <div class="sr-only">
-      <.link navigate={~p"/negocios/#{business}"}>Show</.link>
+      <.link navigate={~p"/admin/business/#{business}"}>Show</.link>
     </div>
-    <.link patch={~p"/business/#{business}/edit"}>
+    <.link patch={~p"/admin/business/#{business}/edit"}>
       <.icon name="hero-pencil-square" class="w-5 h-5" />
     </.link>
   </:action>
@@ -52,7 +52,7 @@
   :if={@live_action in [:new, :edit]}
   id="business-modal"
   show
-  on_cancel={JS.patch(~p"/business")}
+  on_cancel={JS.patch(~p"/admin/business")}
 >
   <.live_component
     module={BalaioWeb.BusinessLive.FormComponent}
@@ -60,6 +60,6 @@
     title={@page_title}
     action={@live_action}
     business={@business}
-    patch={~p"/business"}
+    patch={~p"/admin/business"}
   />
 </.modal>

@@ -35,7 +35,7 @@ defmodule BalaioWeb.Admin.BusinessLive.Index do
   end
 
   @impl true
-  def handle_info({BalaioWeb.BusinessLive.FormComponent, {:saved, business}}, socket) do
+  def handle_info({BalaioWeb.Admin.BusinessLive.FormComponent, {:saved, business}}, socket) do
     {:noreply, stream_insert(socket, :business_collection, business)}
   end
 
