@@ -17,6 +17,12 @@ defmodule BalaioWeb.Router do
     plug :accepts, ["json"]
   end
 
+  # See here https://hexdocs.pm/phoenix/routing.html#creating-new-pipelines
+  pipeline :auth do
+    plug :browser
+    plug :require_authenticated_user
+  end
+
   scope "/", BalaioWeb do
     pipe_through :browser
 
@@ -24,6 +30,13 @@ defmodule BalaioWeb.Router do
 
     live "/negocios", BusinessLive.Index, :index
     live "/negocio/:id", BusinessLive.Show, :show
+  end
+
+  scope "/admin", BalaioWeb do
+    pipe_through [:auth]
+
+    live "/business", BusinessLive.Index, :index
+    live "/business/:id", BusinessLive.Show, :show
   end
 
   # Other scopes may use custom stacks.

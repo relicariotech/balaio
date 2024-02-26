@@ -2,7 +2,6 @@ defmodule Balaio.Catalog.Business do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Balaio.Catalog.Category
   alias Balaio.Catalog.BusinessCategory
 
   @primary_key {:id, :binary_id, autogenerate: true}
