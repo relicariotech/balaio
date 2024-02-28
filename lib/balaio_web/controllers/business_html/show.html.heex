@@ -1,6 +1,10 @@
 <div class="md:flex md:justify-between">
   <!-- Sidebar -->
-  <.show_sidebar />
+  <.show_sidebar
+    name={@business.name}
+    is_delivery={@business.is_delivery}
+    thumbnail={@business.thumbnail}
+  />
   <!-- Main content -->
   <div class="md:grow">
     <div class="pb-8">

@@ -2,21 +2,18 @@
   <div class="sticky top-8">
     <div class="relative bg-gray-50 rounded-xl border border-gray-200 p-5">
       <div class="text-center mb-6">
-        <img
-          class="inline-flex mb-2"
-          src="./images/company-icon-08.svg"
-          width="72"
-          height="72"
-          alt="Company 08"
-        />
-        <h2 class="text-lg font-bold text-gray-800">Medium Inc.</h2>
+        <img class="inline-flex mb-2" src={@thumbnail} width="72" height="72" alt={@name} />
+        <h2 class="text-lg font-bold text-gray-800"><%= @name %></h2>
       </div>
 
       <div class="flex justify-center md:justify-start mb-5">
         <ul class="inline-flex flex-col space-y-2">
           <li class="flex items-center">
-            <.icon name="hero-truck" class="w-4 h-4 shrink-0 text-gray-400 mr-3" />
-            <span class="text-sm text-gray-600">Delivery</span>
+            <%= if @is_delivery == true do %>
+              <.icon name="hero-truck" class="w-4 h-4 shrink-0 text-gray-400 mr-3" />
+              <span class="text-sm text-gray-600">Delivery</span>
+            <% else %>
+            <% end %>
           </li>
           <li class="flex items-center">
             <.icon name="hero-phone" class="w-4 h-4 shrink-0 text-gray-400 mr-3" />
