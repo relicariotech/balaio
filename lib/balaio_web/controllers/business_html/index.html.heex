@@ -1,0 +1,15 @@
+<.header>
+  Lista de Negócios
+</.header>
+
+<.table id="businesses" rows={@businesses} row_click={&JS.navigate(~p"/negocio/#{&1}")}>
+  <:col :let={business} label="Title"><%= business.name %></:col>
+  <:col :let={business} label="Description"><%= business.description %></:col>
+  <:col :let={business} label="Price"><%= business.phone %></:col>
+  <:col :let={business} label="Views"><%= business.address %></:col>
+  <:action :let={business}>
+    <div class="sr-only">
+      <.link navigate={~p"/negocio/#{business}"}>Show</.link>
+    </div>
+  </:action>
+</.table>

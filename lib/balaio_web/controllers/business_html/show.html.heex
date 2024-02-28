@@ -1,0 +1,19 @@
+<.header>
+  <%= @business.name %>
+  <:subtitle>This is a product record from your database.</:subtitle>
+</.header>
+
+<.list>
+  <:item title="Title"><%= @business.name %></:item>
+  <:item title="Description"><%= @business.description %></:item>
+  <:item title="Price"><%= @business.phone %></:item>
+  <:item title="Views"><%= @business.address %></:item>
+  <%!-- <:item title="Categorias">
+    <%= for cat <- @business.categories do %>
+      <%= cat.title %>
+      <br />
+    <% end %>
+  </:item> --%>
+</.list>
+
+<.back navigate={~p"/negocios"}>Todos os Negócios</.back>

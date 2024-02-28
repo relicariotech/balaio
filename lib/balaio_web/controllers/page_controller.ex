@@ -4,7 +4,11 @@ defmodule BalaioWeb.PageController do
   def home(conn, _params) do
     # The home page is often custom made,
     # so skip the default app layout.
+
     businesses = Balaio.Catalog.list_business()
-    render(conn, :home, layout: false, businesses: businesses)
+
+    conn
+    |> put_layout(html: :public)
+    |> render(businesses: businesses)
   end
 end
