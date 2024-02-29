@@ -4,7 +4,7 @@
       <!-- Site branding -->
       <div class="shrink-0 mr-4">
         <!-- Logo -->
-        <a class="block group" href="index.html" aria-label="Cruip">
+        <.link href={~p"/"} class="block group" aria-label="Balaio.app">
           <img
             src="/images/logo-topo.svg"
             class="max-w-none"
@@ -12,7 +12,7 @@
             height="80"
             alt="balaio.app"
           />
-        </a>
+        </.link>
       </div>
       <!-- Desktop navigation -->
       <nav class="flex grow">
@@ -26,14 +26,38 @@
               Negócios
             </.link>
           </li>
-          <li>
-            <.link
-              href={~p"/users/log_in"}
-              class="text-sm font-medium text-indigo-500 hover:underline px-3 lg:px-5 py-2 flex items-center"
-            >
-              Log in
-            </.link>
-          </li>
+
+          <%= if @current_user do %>
+            <li class="text-[0.8125rem] leading-6 text-zinc-900">
+              <%= @current_user.email %>
+            </li>
+            <li>
+              <.link
+                href={~p"/users/settings"}
+                class="text-sm font-medium text-indigo-500 hover:underline px-3 lg:px-5 py-2 flex items-center"
+              >
+                Settings
+              </.link>
+            </li>
+            <li>
+              <.link
+                href={~p"/users/log_out"}
+                method="delete"
+                class="text-sm font-medium text-indigo-500 hover:underline px-3 lg:px-5 py-2 flex items-center"
+              >
+                Log out
+              </.link>
+            </li>
+          <% else %>
+            <li>
+              <.link
+                href={~p"/users/log_in"}
+                class="text-sm font-medium text-indigo-500 hover:underline px-3 lg:px-5 py-2 flex items-center"
+              >
+                Log in
+              </.link>
+            </li>
+          <% end %>
           <li class="ml-3">
             <a
               class="btn-sm text-white bg-indigo-500 hover:bg-indigo-600 w-full shadow-sm"
