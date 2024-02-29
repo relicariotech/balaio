@@ -1,5 +1,5 @@
 <!-- Site header -->
-<.header_section />
+<.header_section {assigns} />
 <!-- Page content -->
 <main class="grow">
   <%= if @conn.request_path =~ ~r{/negocio/\d+} do %>
@@ -10,29 +10,9 @@
     <.press_logo />
   <% end %>
   <!-- Page content -->
-  <section>
-    <!-- Bg -->
-    <div
-      class="absolute inset-0 bg-gradient-to-b from-indigo-100 to-white pointer-events-none -z-10"
-      aria-hidden="true"
-    >
-    </div>
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="py-8 md:py-16">
-        <div class="md:flex md:justify-between">
-          <!-- Main content -->
-          <div class="md:grow">
-            <!-- Job list -->
-            <div class="pb-8 md:pb-16">
-              <!-- Item -->
-              <%= @inner_content %>
-              <!-- End Item -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Site footer -->
+        
+  <!-- Item -->
+  <%= @inner_content %>
+  <!-- End Item -->
   <._footer />
 </main>
