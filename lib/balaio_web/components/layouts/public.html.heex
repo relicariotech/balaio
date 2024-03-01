@@ -1,0 +1,18 @@
+<!-- Site header -->
+<.header_section {assigns} />
+<!-- Page content -->
+<main class="grow">
+  <%= if @conn.request_path =~ ~r{/negocio/\d+} do %>
+  <% else %>
+    <!-- Hero -->
+    <.hero_section />
+    <!-- Press logos -->
+    <.press_logo />
+  <% end %>
+  <!-- Page content -->
+        
+  <!-- Item -->
+  <%= @inner_content %>
+  <!-- End Item -->
+  <._footer />
+</main>

@@ -28,8 +28,11 @@ defmodule BalaioWeb.Router do
 
     get "/", PageController, :home
 
-    live "/negocios", BusinessLive.Index, :index
-    live "/negocio/:id", BusinessLive.Show, :show
+    # live "/negocios", BusinessLive.Index, :index
+    # live "/negocio/:id", BusinessLive.Show, :show
+
+    get "/negocios", BusinessController, :index
+    get "/negocio/:id", BusinessController, :show
   end
 
   # Other scopes may use custom stacks.

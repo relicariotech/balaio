@@ -1,7 +1,6 @@
 defmodule Balaio.Catalog.Business.Query do
   import Ecto.Query
   alias Balaio.Catalog.Business
-  alias Balaio.Catalog.Category
 
   def base, do: Business
 
