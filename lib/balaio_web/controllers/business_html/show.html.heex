@@ -12,7 +12,9 @@
         <div class="md:grow">
           <div class="pb-8">
             <div class="mb-4">
-              <.back navigate={~p"/negocios"} class="mb-4">Todos os Negócios</.back>
+              <.link href={~p"/negocios"} class="text-indigo-500 text-sm font-medium">
+                <.icon name="hero-arrow-left" class="w-3 h-3" /> Todos os Negócios
+              </.link>
             </div>
             <h1 class="text-4xl font-extrabold font-inter mb-10">
               <%= @business.name %>
