@@ -16,7 +16,7 @@
   <:item title="Address"><%= @business.address %></:item>
   <:item title="Is delivery">
     <%= if @business.is_delivery == true do %>
-      <.icon name="hero-truck" class="w-5 h-5 text-gray-500" />
+      <.icon name="hero-check-circle" class="w-5 h-5 text-gray-500" />
     <% else %>
       Não
     <% end %>

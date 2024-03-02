@@ -15,8 +15,13 @@
           </div>
           <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
             <div>
-              <div class="flex items-start space-x-2">
-                <div class="text-sm text-gray-800 font-semibold mb-1">Robinhood</div>
+              <div class="-m-1 mb-2">
+                <div
+                  :for={category <- business.categories}
+                  class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 rounded-md m-1 whitespace-nowrap"
+                >
+                  <%= category.title %>
+                </div>
               </div>
               <div class="mb-2">
                 <.link navigate={~p"/negocio/#{business}"} class="text-lg text-gray-800 font-bold">
