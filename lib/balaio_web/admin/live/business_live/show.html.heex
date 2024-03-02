@@ -15,6 +15,12 @@
   <:item title="Phone"><%= @business.phone %></:item>
   <:item title="Address"><%= @business.address %></:item>
   <:item title="Is delivery"><%= @business.is_delivery %></:item>
+  <:item title="Categories">
+    <%= for cat <- @business.categories do %>
+      <%= cat.title %>
+      <br />
+    <% end %>
+  </:item>
 </.list>
 <div class="mt-4">
   <.label>Imagem</.label>

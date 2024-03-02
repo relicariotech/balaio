@@ -52,7 +52,7 @@ defmodule Balaio.Catalog do
       ** (Ecto.NoResultsError)
 
   """
-  def get_business!(id), do: Repo.get!(Business, id) |> Repo.preload([:business_categories])
+  def get_business!(id), do: Repo.get!(Business, id) |> Repo.preload([:categories])
 
   @doc """
   Creates a business.
