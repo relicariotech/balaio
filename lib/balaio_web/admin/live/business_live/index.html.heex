@@ -55,7 +55,7 @@
   on_cancel={JS.patch(~p"/admin/business")}
 >
   <.live_component
-    module={BalaioWeb.BusinessLive.FormComponent}
+    module={BalaioWeb.Admin.BusinessLive.FormComponent}
     id={@business.id || :new}
     title={@page_title}
     action={@live_action}
