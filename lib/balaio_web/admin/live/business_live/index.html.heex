@@ -16,7 +16,9 @@
   <:col :let={{_id, business}} label="Description"><%= business.description %></:col>
   <:col :let={{_id, business}} label="Categories">
     <div :for={category <- business.categories}>
-      <span><%= category.title %></span>
+      <span class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 rounded-md m-1 whitespace-nowrap">
+        <%= category.title %>
+      </span>
     </div>
   </:col>
   <:col :let={{_id, business}} label="Phone"><%= business.phone %></:col>

@@ -17,7 +17,9 @@
   <:item title="Is delivery"><%= @business.is_delivery %></:item>
   <:item title="Categories">
     <%= for cat <- @business.categories do %>
-      <%= cat.title %>
+      <span class="text-xs text-gray-500 font-medium inline-flex px-2 py-0.5 bg-gray-100 rounded-md m-1 whitespace-nowrap">
+        <%= cat.title %>
+      </span>
       <br />
     <% end %>
   </:item>
