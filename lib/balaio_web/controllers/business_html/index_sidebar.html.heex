@@ -10,36 +10,12 @@
       <div class="grid grid-cols-2 md:grid-cols-1 gap-6">
         <!-- Group 1 -->
         <div>
-          <div class="text-sm text-gray-800 font-semibold mb-3">Job Type</div>
+          <div class="text-sm text-gray-800 font-semibold mb-3">Categorias</div>
           <ul class="space-y-2">
-            <li>
+            <li :for={category <- Balaio.Catalog.list_categories()}>
               <label class="flex items-center">
                 <input type="checkbox" class="form-checkbox" />
-                <span class="text-sm text-gray-600 ml-2">Full-time</span>
-              </label>
-            </li>
-            <li>
-              <label class="flex items-center">
-                <input type="checkbox" class="form-checkbox" />
-                <span class="text-sm text-gray-600 ml-2">Part-time</span>
-              </label>
-            </li>
-            <li>
-              <label class="flex items-center">
-                <input type="checkbox" class="form-checkbox" />
-                <span class="text-sm text-gray-600 ml-2">Intership</span>
-              </label>
-            </li>
-            <li>
-              <label class="flex items-center">
-                <input type="checkbox" class="form-checkbox" />
-                <span class="text-sm text-gray-600 ml-2">Contract / Freelance</span>
-              </label>
-            </li>
-            <li>
-              <label class="flex items-center">
-                <input type="checkbox" class="form-checkbox" />
-                <span class="text-sm text-gray-600 ml-2">Co-founder</span>
+                <span class="text-sm text-gray-600 ml-2"><%= category.title %></span>
               </label>
             </li>
           </ul>
