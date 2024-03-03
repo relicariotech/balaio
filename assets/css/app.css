@@ -21,3 +21,24 @@
   .promo svg {
     @apply inline-flex w-6 h-6;
   }
+
+/* Feature Component */
+
+.feature {
+  @apply max-w-3xl mx-auto my-6 p-4 rounded-lg text-left text-white text-xs font-normal bg-gradient-to-r from-green-400 to-blue-500;
+}
+/* .feature .deal {
+  @apply font-extrabold text-lg flex items-center justify-center gap-2 drop-shadow-lg;
+} */
+.feature .deal {
+  @apply font-extrabold text-lg  gap-2 drop-shadow-lg;
+}
+.feature .expiration {
+  @apply text-sm font-bold uppercase mt-2 text-slate-900;
+}
+.feature .legal {
+  @apply text-sm italic font-medium text-slate-300 flex items-center justify-end gap-1;
+}
+.feature svg {
+  @apply inline-flex w-6 h-6;
+}

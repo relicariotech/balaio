@@ -138,11 +138,39 @@
         </div>
       </div>
     </div>
-    <.promo expiration={2}>
+    <.feature expiration={2}>
       Agências Bancárias
-      <:legal>
-        <.icon name="hero-exclamation-circle" /> Limit 1 per party
-      </:legal>
-    </.promo>
+      <%= for business <- @businesses do %>
+        <!-- Item -->
+        <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
+          <div class="px-4 py-6">
+            <div class="sm:flex items-center space-y-3 sm:space-y-0 sm:space-x-5">
+              <div class="shrink-0">
+                <img
+                  class="rounded-md bg-white"
+                  src={business.thumbnail}
+                  width="56"
+                  height="56"
+                  alt={business.name}
+                />
+              </div>
+              <div class="grow lg:flex items-center justify-between space-y-5 lg:space-x-2 lg:space-y-0">
+                <div>
+                  <div class="mb-2">
+                    <.link
+                      navigate={~p"/negocio/#{business}"}
+                      class="text-lg text-gray-800 font-bold"
+                    >
+                      <%= business.name %>
+                    </.link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Item -->
+      <% end %>
+    </.feature>
   </div>
 </aside>
