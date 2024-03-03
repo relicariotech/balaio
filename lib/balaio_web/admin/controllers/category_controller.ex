@@ -19,7 +19,7 @@ defmodule BalaioWeb.Admin.CategoryController do
       {:ok, category} ->
         conn
         |> put_flash(:info, "Category created successfully.")
-        |> redirect(to: ~p"/categories/#{category}")
+        |> redirect(to: ~p"/admin/categories/#{category}")
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, :new, changeset: changeset)
@@ -44,7 +44,7 @@ defmodule BalaioWeb.Admin.CategoryController do
       {:ok, category} ->
         conn
         |> put_flash(:info, "Category updated successfully.")
-        |> redirect(to: ~p"/categories/#{category}")
+        |> redirect(to: ~p"/admin/categories/#{category}")
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, :edit, category: category, changeset: changeset)
@@ -57,6 +57,6 @@ defmodule BalaioWeb.Admin.CategoryController do
 
     conn
     |> put_flash(:info, "Category deleted successfully.")
-    |> redirect(to: ~p"/categories")
+    |> redirect(to: ~p"/admin/categories")
   end
 end
