@@ -3,7 +3,6 @@ defmodule BalaioWeb.Admin.BusinessLive.FormComponent do
 
   alias Balaio.Catalog
   alias Balaio.Catalog.BusinessCategory
-  alias Balaio.Catalog.Category
 
   @impl true
   def render(assigns) do
