@@ -138,9 +138,9 @@
         </div>
       </div>
     </div>
-    <.feature expiration={2}>
+    <.feature>
       Agências Bancárias
-      <%= for business <- @businesses do %>
+      <%= for business <- Balaio.Catalog.filter_by_category("fdfb443f-762f-496e-b4f4-619696def356") do %>
         <!-- Item -->
         <div class="[&:nth-child(-n+12)]:-order-1 border-b border-gray-200 group">
           <div class="px-4 py-6">
