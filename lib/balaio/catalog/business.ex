@@ -42,8 +42,8 @@ defmodule Balaio.Catalog.Business do
       :phone,
       :address,
       :thumbnail,
-      :is_delivery,
-      :user_id
+      :is_delivery
+      # :user_id
     ])
     |> cast_assoc(:business_categories,
       with: &BusinessCategory.changeset/2,
