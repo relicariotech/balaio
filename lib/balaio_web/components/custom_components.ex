@@ -17,4 +17,14 @@ defmodule BalaioWeb.CustomComponents do
     </div>
     """
   end
+
+  def feature(assigns) do
+    ~H"""
+    <div class="feature">
+      <div class="deal">
+        <%= render_slot(@inner_block) %>
+      </div>
+    </div>
+    """
+  end
 end
