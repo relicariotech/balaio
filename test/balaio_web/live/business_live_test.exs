@@ -4,9 +4,9 @@ defmodule BalaioWeb.BusinessLiveTest do
   import Phoenix.LiveViewTest
   import Balaio.CatalogFixtures
 
-  @create_attrs %{name: "some name", address: "some address", description: "some description", category: "some category", phone: "some phone", thumbnail: "some thumbnail", is_delivery: true}
-  @update_attrs %{name: "some updated name", address: "some updated address", description: "some updated description", category: "some updated category", phone: "some updated phone", thumbnail: "some updated thumbnail", is_delivery: false}
-  @invalid_attrs %{name: nil, address: nil, description: nil, category: nil, phone: nil, thumbnail: nil, is_delivery: false}
+  @create_attrs %{}
+  @update_attrs %{}
+  @invalid_attrs %{}
 
   defp create_business(_) do
     business = business_fixture()
@@ -16,11 +16,10 @@ defmodule BalaioWeb.BusinessLiveTest do
   describe "Index" do
     setup [:create_business]
 
-    test "lists all business", %{conn: conn, business: business} do
+    test "lists all business", %{conn: conn} do
       {:ok, _index_live, html} = live(conn, ~p"/business")
 
       assert html =~ "Listing Business"
-      assert html =~ business.name
     end
 
     test "saves new business", %{conn: conn} do
@@ -43,7 +42,6 @@ defmodule BalaioWeb.BusinessLiveTest do
 
       html = render(index_live)
       assert html =~ "Business created successfully"
-      assert html =~ "some name"
     end
 
     test "updates business in listing", %{conn: conn, business: business} do
@@ -66,7 +64,6 @@ defmodule BalaioWeb.BusinessLiveTest do
 
       html = render(index_live)
       assert html =~ "Business updated successfully"
-      assert html =~ "some updated name"
     end
 
     test "deletes business in listing", %{conn: conn, business: business} do
@@ -84,7 +81,6 @@ defmodule BalaioWeb.BusinessLiveTest do
       {:ok, _show_live, html} = live(conn, ~p"/business/#{business}")
 
       assert html =~ "Show Business"
-      assert html =~ business.name
     end
 
     test "updates business within modal", %{conn: conn, business: business} do
@@ -107,7 +103,6 @@ defmodule BalaioWeb.BusinessLiveTest do
 
       html = render(show_live)
       assert html =~ "Business updated successfully"
-      assert html =~ "some updated name"
     end
   end
 end

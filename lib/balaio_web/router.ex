@@ -115,5 +115,14 @@ defmodule BalaioWeb.Router do
       live "/users/confirm/:token", UserConfirmationLive, :edit
       live "/users/confirm", UserConfirmationInstructionsLive, :new
     end
+
+    live_session :default do
+      live "/business", BusinessLive.Index, :index
+      live "/business/new", BusinessLive.Index, :new
+      live "/business/:id/edit", BusinessLive.Index, :edit
+
+      live "/business/:id", BusinessLive.Show, :show
+      live "/business/:id/show/edit", BusinessLive.Show, :edit
+    end
   end
 end

@@ -1,0 +1,45 @@
+<.header>
+  Listing Business
+  <:actions>
+    <.link patch={~p"/business/new"}>
+      <.button>New Business</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="business"
+  rows={@streams.business_collection}
+  row_click={fn {_id, business} -> JS.navigate(~p"/business/#{business}") end}
+>
+  <:action :let={{_id, business}}>
+    <div class="sr-only">
+      <.link navigate={~p"/business/#{business}"}>Show</.link>
+    </div>
+    <.link patch={~p"/business/#{business}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, business}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: business.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal
+  :if={@live_action in [:new, :edit]}
+  id="business-modal"
+  show
+  on_cancel={JS.patch(~p"/business")}
+>
+  <.live_component
+    module={BalaioWeb.BusinessLive.FormComponent}
+    id={@business.id || :new}
+    title={@page_title}
+    action={@live_action}
+    business={@business}
+    patch={~p"/business"}
+  />
+</.modal>

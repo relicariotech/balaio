@@ -1,0 +1,25 @@
+<.header>
+  Business <%= @business.id %>
+  <:subtitle>This is a business record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/business/#{@business}/show/edit"} phx-click={JS.push_focus()}>
+      <.button>Edit business</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+</.list>
+
+<.back navigate={~p"/business"}>Back to business</.back>
+
+<.modal :if={@live_action == :edit} id="business-modal" show on_cancel={JS.patch(~p"/business/#{@business}")}>
+  <.live_component
+    module={BalaioWeb.BusinessLive.FormComponent}
+    id={@business.id}
+    title={@page_title}
+    action={@live_action}
+    business={@business}
+    patch={~p"/business/#{@business}"}
+  />
+</.modal>
