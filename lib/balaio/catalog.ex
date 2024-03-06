@@ -221,6 +221,12 @@ defmodule Balaio.Catalog do
     Category.changeset(category, attrs)
   end
 
+  def categories_with_quantity_business(%{category_filter: category_filter}) do
+    Category.Query.with_count_business()
+    |> Category.Query.filter_by_category(category_filter)
+    |> Repo.all()
+  end
+
   def business_with_categories do
     Business.Query.filter_by_category()
     |> Repo.all()

@@ -100,6 +100,8 @@ defmodule BalaioWeb.Router do
       live "/business/:id/show/edit", BusinessLive.Show, :edit
 
       resources "/categories", CategoryController
+
+      live "/dashboard", DashboardLive
     end
   end
 

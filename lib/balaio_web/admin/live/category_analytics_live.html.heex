@@ -1,0 +1,28 @@
+<section class="ml-8">
+  <h2 class="font-light text-2xl">Survey Results</h2>
+
+  <div id="survey-results-component">
+    <div class="container">
+      <div>
+        <.form
+          :let={f}
+          for={%{}}
+          as={:category_filter}
+          phx-change="category_filter"
+          phx-target={@myself}
+          id="category-form"
+        >
+          <label>Selecione uma Categoria:</label>
+          <select name="category_filter" id="category_filter">
+            <%= for category <- Balaio.Catalog.list_categories() do %>
+              <option value={category.id} selected={@category_filter == category.title}>
+                <%= category.title %>
+              </option>
+            <% end %>
+          </select>
+        </.form>
+      </div>
+    </div>
+  </div>
+  <div id="survey-results-chart"><%= @chart_svg %></div>
+</section>
