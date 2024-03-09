@@ -1,45 +1,21 @@
-<.header>
-  Listing Business
-  <:actions>
-    <.link patch={~p"/business/new"}>
-      <.button>New Business</.button>
-    </.link>
-  </:actions>
-</.header>
-
-<.table
-  id="business"
-  rows={@streams.business_collection}
-  row_click={fn {_id, business} -> JS.navigate(~p"/business/#{business}") end}
->
-  <:action :let={{_id, business}}>
-    <div class="sr-only">
-      <.link navigate={~p"/business/#{business}"}>Show</.link>
+<section>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="py-8 md:py-16">
+      <div class="md:flex md:justify-between">
+        <!-- Sidebar -->
+        <.index_sidebar />
+        <!-- Main content -->
+        <div class="md:grow">
+          <!-- Job list -->
+          <div class="pb-8 md:pb-16">
+            <h2 class="text-3xl font-bold font-inter mb-10">Negócios</h2>
+            <!-- All Business List -->
+            <.business_items {assigns} />
+          </div>
+          <!-- Testimonials -->
+          <.testimonials />
+        </div>
+      </div>
     </div>
-    <.link patch={~p"/business/#{business}/edit"}>Edit</.link>
-  </:action>
-  <:action :let={{id, business}}>
-    <.link
-      phx-click={JS.push("delete", value: %{id: business.id}) |> hide("##{id}")}
-      data-confirm="Are you sure?"
-    >
-      Delete
-    </.link>
-  </:action>
-</.table>
-
-<.modal
-  :if={@live_action in [:new, :edit]}
-  id="business-modal"
-  show
-  on_cancel={JS.patch(~p"/business")}
->
-  <.live_component
-    module={BalaioWeb.BusinessLive.FormComponent}
-    id={@business.id || :new}
-    title={@page_title}
-    action={@live_action}
-    business={@business}
-    patch={~p"/business"}
-  />
-</.modal>
+  </div>
+</section>
