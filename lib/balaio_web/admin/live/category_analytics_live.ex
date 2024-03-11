@@ -8,16 +8,16 @@ defmodule BalaioWeb.Admin.CategoryAnalyticsLive do
     {:ok,
      socket
      |> assign(assigns)
-     |> assign_cagetory_filter()
+     |> assign_category_filter()
      |> assign_categories_with_quantity_business()
      |> assign_dataset()
      |> assign_chart()
-     |> assign_chart_svg}
+     |> assign_chart_svg()}
   end
 
-  def assign_cagetory_filter(socket) do
+  def assign_category_filter(socket) do
     socket
-    |> assign(:category_filter, "all")
+    |> assign(:category_filter, "category_filter")
   end
 
   def assign_categories_with_quantity_business(
@@ -28,6 +28,16 @@ defmodule BalaioWeb.Admin.CategoryAnalyticsLive do
       :categories_with_quantity_business,
       Catalog.categories_with_quantity_business(%{category_filter: category_filter})
     )
+  end
+
+  def handle_event("category_filter", %{"category_filter" => category_filter}, socket) do
+    {:noreply,
+     socket
+     |> assign_category_filter()
+     |> assign_categories_with_quantity_business()
+     |> assign_dataset()
+     |> assign_chart()
+     |> assign_chart_svg()}
   end
 
   def assign_dataset(

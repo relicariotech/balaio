@@ -7,10 +7,20 @@ defmodule BalaioWeb.BusinessLive.Index do
   @impl true
   def mount(_params, _session, socket) do
     socket =
-      socket
-      |> assign(:businesses, Catalog.list_business())
+      assign(socket,
+        filter: %{categories: []},
+        businesses: Catalog.list_business()
+      )
 
-    {:ok, socket}
+    {:ok, socket, temporary_assigns: [businesses: []]}
+  end
+
+  def handle_event("filter", %{"categories" => categories}, socket) do
+    filter = %{categories: categories}
+
+    business = Catalog.list_business(filter)
+
+    {:noreply, assign(socket, business: business, filter: filter)}
   end
 
   def business_items(assigns) do
@@ -108,15 +118,23 @@ defmodule BalaioWeb.BusinessLive.Index do
           <div class="grid grid-cols-2 md:grid-cols-1 gap-6">
             <!-- Group 1 -->
             <div>
-              <div class="text-sm text-gray-800 font-semibold mb-3">Categorias</div>
-              <ul class="space-y-2">
-                <li :for={category <- Balaio.Catalog.list_categories()}>
-                  <label class="flex items-center">
-                    <input type="checkbox" class="form-checkbox" />
-                    <span class="text-sm text-gray-600 ml-2"><%= category.title %></span>
-                  </label>
-                </li>
-              </ul>
+              <form phx-change="filter">
+                <div class="text-sm text-gray-800 font-semibold mb-3">Categorias</div>
+                <ul class="space-y-2">
+                  <li :for={category <- Balaio.Catalog.list_categories()}>
+                    <label class="flex items-center">
+                      <input
+                        type="checkbox"
+                        name="categories[]"
+                        value={category.id}
+                        class="form-checkbox"
+                      />
+                      <span class="text-sm text-gray-600 ml-2"><%= category.title %></span>
+                    </label>
+                  </li>
+                  <input type="hidden" name="categories[]" value="" />
+                </ul>
+              </form>
             </div>
             <!-- Group 2 -->
             <div>

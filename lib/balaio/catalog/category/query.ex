@@ -33,6 +33,6 @@ defmodule Balaio.Catalog.Category.Query do
 
   defp apply_category_filter(query, filter) do
     query
-    |> where([b, c], c.category == ^filter)
+    |> where([b, c], c.category_id == ^filter)
   end
 end
