@@ -5,7 +5,6 @@ defmodule Balaio.Catalog.BusinessCategory do
   alias Balaio.Catalog.Business
   alias Balaio.Catalog.Category
 
-  @foreign_key_type :binary_id
   schema "business_categories" do
     belongs_to :business, Business
     belongs_to :category, Category

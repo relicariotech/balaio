@@ -4,8 +4,8 @@ defmodule Balaio.Repo.Migrations.CreateBusinessCategories do
   def change do
     create table(:business_categories) do
       # add :id, :binary_id, primary_key: true
-      add :business_id, references(:business, on_delete: :delete_all, type: :binary_id)
-      add :category_id, references(:categories, on_delete: :delete_all, type: :binary_id)
+      add :business_id, references(:business, on_delete: :delete_all)
+      add :category_id, references(:categories, on_delete: :delete_all)
     end
 
     # create index(:business_categories, [:business_id])

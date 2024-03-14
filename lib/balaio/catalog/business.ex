@@ -5,8 +5,6 @@ defmodule Balaio.Catalog.Business do
   alias Balaio.Accounts.User
   alias Balaio.Catalog.BusinessCategory
 
-  @primary_key {:id, :binary_id, autogenerate: true}
-  @foreign_key_type :binary_id
   schema "business" do
     field :name, :string
     field :address, :string

@@ -24,10 +24,26 @@ defmodule Balaio.Catalog do
     |> Repo.preload(:categories)
   end
 
+  def list_business(filter) when is_map(filter) do
+    from(Business)
+    |> filter_by_categories(filter)
+    |> Repo.all()
+    |> Repo.preload(:categories)
+  end
+
+  defp filter_by_categories(query, %{categories: []}), do: query
+
+  defp filter_by_categories(query, %{categories: categories}) do
+    from b in query,
+      join: bc in assoc(b, :categories),
+      where: bc.id in ^categories,
+      preload: [:categories]
+  end
+
   defp filter_by_category_id(query, category_id) do
     from b in query,
       join: bc in assoc(b, :categories),
-      where: bc.id == ^category_id,
+      where: bc.id in ^category_id,
       preload: [:categories]
   end
 
@@ -219,6 +235,12 @@ defmodule Balaio.Catalog do
   """
   def change_category(%Category{} = category, attrs \\ %{}) do
     Category.changeset(category, attrs)
+  end
+
+  def categories_with_quantity_business(%{category_filter: category_filter}) do
+    Category.Query.filter_by_category(category_filter)
+    |> Category.Query.with_count_business()
+    |> Repo.all()
   end
 
   def business_with_categories do

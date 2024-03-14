@@ -4,8 +4,6 @@ defmodule Balaio.Catalog.Category do
 
   alias Balaio.Catalog.BusinessCategory
 
-  @primary_key {:id, :binary_id, autogenerate: true}
-  @foreign_key_type :binary_id
   schema "categories" do
     field :title, :string
 

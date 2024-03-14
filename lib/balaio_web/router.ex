@@ -26,13 +26,13 @@ defmodule BalaioWeb.Router do
   scope "/", BalaioWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    # get "/", PageController, :home
 
-    # live "/negocios", BusinessLive.Index, :index
-    # live "/negocio/:id", BusinessLive.Show, :show
-
-    get "/negocios", BusinessController, :index
-    get "/negocio/:id", BusinessController, :show
+    live_session :default,
+      layout: {BalaioWeb.Layouts, :public} do
+      live "/negocios", BusinessLive.Index, :index
+      live "/negocio/:id", BusinessLive.Show, :show
+    end
   end
 
   # Other scopes may use custom stacks.
@@ -100,6 +100,8 @@ defmodule BalaioWeb.Router do
       live "/business/:id/show/edit", BusinessLive.Show, :edit
 
       resources "/categories", CategoryController
+
+      live "/dashboard", DashboardLive
     end
   end
 

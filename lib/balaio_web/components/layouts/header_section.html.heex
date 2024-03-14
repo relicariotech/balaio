@@ -27,8 +27,8 @@
             </.link>
           </li>
 
-          <%= if @current_user do %>
-            <li class="text-[0.8125rem] leading-6 text-zinc-900">
+          <%!-- <%= if @current_user do %> --%>
+          <%!-- <li class="text-[0.8125rem] leading-6 text-zinc-900">
               <%= @current_user.email %>
             </li>
             <li>
@@ -48,8 +48,8 @@
                 Log out
               </.link>
             </li>
-          <% else %>
-            <li>
+          <% else %> --%>
+          <%!-- <li>
               <.link
                 href={~p"/users/log_in"}
                 class="text-sm font-medium text-indigo-500 hover:underline px-3 lg:px-5 py-2 flex items-center"
@@ -57,7 +57,7 @@
                 Log in
               </.link>
             </li>
-          <% end %>
+          <% end %> --%>
           <li class="ml-3">
             <a
               class="btn-sm text-white bg-indigo-500 hover:bg-indigo-600 w-full shadow-sm"
