@@ -31,7 +31,7 @@ defmodule Balaio.Catalog do
     |> Repo.preload(:categories)
   end
 
-  defp filter_by_categories(query, %{categories: [""]}), do: query
+  defp filter_by_categories(query, %{categories: []}), do: query
 
   defp filter_by_categories(query, %{categories: categories}) do
     from b in query,

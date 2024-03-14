@@ -18,9 +18,9 @@ defmodule BalaioWeb.BusinessLive.Index do
   def handle_event("filter", %{"categories" => categories}, socket) do
     filter = %{categories: categories}
 
-    business = Catalog.list_business(filter)
+    businesses = Catalog.list_business(filter)
 
-    {:noreply, assign(socket, business: business, filter: filter)}
+    {:noreply, assign(socket, businesses: businesses, filter: filter)}
   end
 
   def business_items(assigns) do
@@ -121,18 +121,22 @@ defmodule BalaioWeb.BusinessLive.Index do
               <form phx-change="filter">
                 <div class="text-sm text-gray-800 font-semibold mb-3">Categorias</div>
                 <ul class="space-y-2">
-                  <li :for={category <- Balaio.Catalog.list_categories()}>
-                    <label class="flex items-center">
-                      <input
-                        type="checkbox"
-                        name="categories[]"
-                        value={category.id}
-                        class="form-checkbox"
-                      />
-                      <span class="text-sm text-gray-600 ml-2"><%= category.title %></span>
-                    </label>
-                  </li>
-                  <input type="hidden" name="categories[]" value="" />
+                  <%= for category <- Balaio.Catalog.list_categories() do %>
+                    <li>
+                      <label class="flex items-center">
+                        <input
+                          type="checkbox"
+                          name="categories[]"
+                          value={category.id}
+                          id={"#{category.id}-business"}
+                          checked={category.id in @filter.categories}
+                          class="form-checkbox"
+                        />
+                        <span class="text-sm text-gray-600 ml-2"><%= category.title %></span>
+                      </label>
+                    </li>
+                  <% end %>
+                  <%!-- <input type="hidden" name="categories[]" value="" /> --%>
                 </ul>
               </form>
             </div>
@@ -174,7 +178,7 @@ defmodule BalaioWeb.BusinessLive.Index do
             </div>
             <!-- Group 3 -->
             <div>
-              <div class="text-sm text-gray-800 font-semibold mb-3">Remote Only</div>
+              <div class="text-sm text-gray-800 font-semibold mb-3">Delivery</div>
               <div class="flex items-center" x-data="{ checked: false }">
                 <div class="form-switch">
                   <input type="checkbox" id="remote-toggle" class="sr-only" x-model="checked" />
