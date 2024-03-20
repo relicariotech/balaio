@@ -12,7 +12,6 @@ defmodule Balaio.Catalog.Business do
     field :phone, :string
     field :thumbnail, :string
     field :is_delivery, :boolean, default: false
-    # field :user_id, :binary_id
     belongs_to :user, User
 
     has_many :business_categories, BusinessCategory, on_replace: :delete
