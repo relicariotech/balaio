@@ -8,7 +8,7 @@ defmodule BalaioWeb.BusinessLive.Index do
   def mount(_params, _session, socket) do
     socket =
       assign(socket,
-        filter: %{categories: []},
+        filter: %{categories: [], isdelivery: :isdelivery},
         businesses: Catalog.list_business()
       )
 
@@ -136,12 +136,11 @@ defmodule BalaioWeb.BusinessLive.Index do
                       </label>
                     </li>
                   <% end %>
-                  <%!-- <input type="hidden" name="categories[]" value="" /> --%>
                 </ul>
               </form>
             </div>
             <!-- Group 2 -->
-            <div>
+            <%!-- <div>
               <div class="text-sm text-gray-800 font-semibold mb-3">Job Roles</div>
               <ul class="space-y-2">
                 <li>
@@ -175,9 +174,9 @@ defmodule BalaioWeb.BusinessLive.Index do
                   </label>
                 </li>
               </ul>
-            </div>
+            </div> --%>
             <!-- Group 3 -->
-            <div>
+            <%!-- <div>
               <div class="text-sm text-gray-800 font-semibold mb-3">Delivery</div>
               <div class="flex items-center" x-data="{ checked: false }">
                 <div class="form-switch">
@@ -189,9 +188,9 @@ defmodule BalaioWeb.BusinessLive.Index do
                 </div>
                 <div class="text-sm text-gray-400 italic ml-2" x-text="checked ? 'On' : 'Off'"></div>
               </div>
-            </div>
+            </div> --%>
             <!-- Group 3 -->
-            <div>
+            <%!-- <div>
               <div class="text-sm text-gray-800 font-semibold mb-3">Salary Range</div>
               <ul class="space-y-2">
                 <li>
@@ -219,7 +218,7 @@ defmodule BalaioWeb.BusinessLive.Index do
                   </label>
                 </li>
               </ul>
-            </div>
+            </div> --%>
             <!-- Group 4 -->
             <div>
               <div class="text-sm text-gray-800 font-semibold mb-3">Cidade</div>
