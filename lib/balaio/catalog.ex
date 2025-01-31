@@ -27,6 +27,7 @@ defmodule Balaio.Catalog do
   def list_business(filter) when is_map(filter) do
     from(Business)
     |> filter_by_categories(filter)
+    |> filter_by_isdelivery(filter)
     |> Repo.all()
     |> Repo.preload(:categories)
   end
@@ -37,6 +38,14 @@ defmodule Balaio.Catalog do
     from b in query,
       join: bc in assoc(b, :categories),
       where: bc.id in ^categories,
+      preload: [:categories]
+  end
+
+  defp filter_by_isdelivery(query, %{isdelivery: ""}), do: query
+
+  defp filter_by_isdelivery(query, %{isdelivery: isdelivery}) do
+    from b in query,
+      where: b.is_delivery == ^isdelivery,
       preload: [:categories]
   end
 
