@@ -8,20 +8,65 @@ defmodule BalaioWeb.BusinessLive.Index do
   def mount(_params, _session, socket) do
     socket =
       assign(socket,
-        filter: %{categories: [], isdelivery: :isdelivery},
-        businesses: Catalog.list_business()
+        businesses: Catalog.list_business(),
+        filters: %{}
       )
 
-    {:ok, socket, temporary_assigns: [businesses: []]}
+    {:ok, socket}
   end
 
-  def handle_event("filter", %{"categories" => categories}, socket) do
-    filter = %{categories: categories}
+  @impl true
+  def handle_event("filter", params, socket) do
+    filtered_params =
+      params
+      |> Map.drop(["_target"])
+      |> Enum.filter(fn {_, v} -> v != "" end)
+      |> Map.new()
 
-    businesses = Catalog.list_business(filter)
+    # Convert string keys to atoms for the filters
+    parsed_filters = parse_filters(filtered_params)
 
-    {:noreply, assign(socket, businesses: businesses, filter: filter)}
+    businesses = Catalog.list_business(parsed_filters)
+
+    {:noreply,
+     socket
+     |> assign(businesses: businesses)
+     |> assign(filters: parsed_filters)}
   end
+
+  defp parse_filters(filters) do
+    filters
+    |> Enum.map(fn {k, v} -> {String.to_atom(k), parse_value(k, v)} end)
+    |> Map.new()
+  end
+
+  # Handle lists like categories
+  defp parse_value("categories", categories) when is_list(categories) do
+    Enum.map(categories, fn
+      cat when is_binary(cat) ->
+        case Integer.parse(cat) do
+          {int_val, ""} -> int_val
+          _ -> cat
+        end
+
+      cat ->
+        cat
+    end)
+  end
+
+  # Handle boolean values like is_delivery
+  defp parse_value("is_delivery", value) when is_binary(value) do
+    case value do
+      "true" -> true
+      "false" -> false
+      "1" -> true
+      "0" -> false
+      _ -> nil
+    end
+  end
+
+  defp parse_value(_key, ""), do: nil
+  defp parse_value(_key, value), do: value
 
   def business_items(assigns) do
     ~H"""
@@ -129,7 +174,6 @@ defmodule BalaioWeb.BusinessLive.Index do
                           name="categories[]"
                           value={category.id}
                           id={"#{category.id}-business"}
-                          checked={category.id in @filter.categories}
                           class="form-checkbox"
                         />
                         <span class="text-sm text-gray-600 ml-2"><%= category.title %></span>
@@ -137,6 +181,22 @@ defmodule BalaioWeb.BusinessLive.Index do
                     </li>
                   <% end %>
                 </ul>
+              </form>
+            </div>
+            <!-- Group Is Delivery -->
+            <div class="">
+              <form phx-change="filter">
+                <div class="text-sm text-gray-800 font-semibold mb-3">Delivery</div>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    name="is_delivery"
+                    value="true"
+                    label="Delivery?"
+                    class="form-checkbox"
+                  />
+                  <span class="text-sm text-gray-600 ml-2">Delivery?</span>
+                </label>
               </form>
             </div>
             <!-- Group 2 -->
