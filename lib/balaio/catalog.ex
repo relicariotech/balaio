@@ -18,49 +18,31 @@ defmodule Balaio.Catalog do
       [%Business{}, ...]
 
   """
-  def list_business do
+  def list_business(filters \\ %{}) do
     Business
+    |> apply_filters(filters)
     |> Repo.all()
     |> Repo.preload(:categories)
   end
 
-  def list_business(filter) when is_map(filter) do
-    from(Business)
-    |> filter_by_categories(filter)
-    |> filter_by_isdelivery(filter)
-    |> Repo.all()
-    |> Repo.preload(:categories)
-  end
+  defp apply_filters(query, filters) when is_map(filters) do
+    Enum.reduce(filters, query, fn
+      # {:categories, categories}, query ->
+      #   filter_by_categories(query, categories)
 
-  defp filter_by_categories(query, %{categories: []}), do: query
+      {:categories, categories}, query
+      when is_list(categories) ->
+        # Assuming you have a many-to-many relationship with categories
+        query
+        |> join(:inner, [b], c in assoc(b, :categories))
+        |> where([_, c], c.id in ^categories)
 
-  defp filter_by_categories(query, %{categories: categories}) do
-    from b in query,
-      join: bc in assoc(b, :categories),
-      where: bc.id in ^categories,
-      preload: [:categories]
-  end
+      {:is_delivery, is_delivery_value}, query when is_boolean(is_delivery_value) ->
+        query |> where([b], b.is_delivery == ^is_delivery_value)
 
-  defp filter_by_isdelivery(query, %{isdelivery: ""}), do: query
-
-  defp filter_by_isdelivery(query, %{isdelivery: isdelivery}) do
-    from b in query,
-      where: b.is_delivery == ^isdelivery,
-      preload: [:categories]
-  end
-
-  defp filter_by_category_id(query, category_id) do
-    from b in query,
-      join: bc in assoc(b, :categories),
-      where: bc.id in ^category_id,
-      preload: [:categories]
-  end
-
-  def filter_by_category(category_id) do
-    query = from(b in Business)
-
-    filter_by_category_id(query, category_id)
-    |> Repo.all()
+      _, query ->
+        query
+    end)
   end
 
   @doc """
